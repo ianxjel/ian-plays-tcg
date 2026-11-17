@@ -1,0 +1,12 @@
+{
+  "updated": "2026-11-17",
+  "format": "tef-dlr",
+  "gamesPerMatchup": 1500,
+  "matchups": 90,
+  "shrink": 0.5,
+  "maeRaw": 9.5,
+  "maeCalibrated": 7.8,
+  "maeAlways50": 9.5,
+  "favoredAgree": 48,
+  "favoredTotal": 63
+}

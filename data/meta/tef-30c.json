@@ -1,0 +1,30 @@
+{
+  "format": "tef-30c",
+  "captured": "2026-11-17",
+  "headline": "Major events (Regionals, Internationals, Special Events)",
+  "sources": {
+    "limitless": {
+      "label": "Limitless (majors)",
+      "url": "https://limitlesstcg.com/decks",
+      "note": "Format TEF–30C. Share is each deck's share of Limitless tournament points from major events, not its play rate."
+    },
+    "trainerHill": {
+      "label": "Trainer Hill",
+      "url": "https://www.trainerhill.com/meta",
+      "note": "Trainer Hill's meta breakdown without Mega Rayquaza, captured from its indexed page on Nov 17; filter settings were not visible."
+    }
+  },
+  "top": [
+    { "id": "dragapult", "label": "Dragapult ex", "limitless": { "share": 36.46, "points": 5872 }, "trainerHill": { "share": 15.1 } },
+    { "id": "basic-box", "label": "Basic Box", "limitless": { "share": 8.78, "points": 1414 }, "trainerHill": { "share": 6.5 } },
+    { "id": "slowking", "label": "Slowking Seek Inspiration", "limitless": { "share": 7.67, "points": 1236 }, "trainerHill": { "share": 4.0 } },
+    { "id": "n-zoroark", "label": "N's Zoroark ex", "limitless": { "share": 7.26, "points": 1169 }, "trainerHill": { "share": 4.9 } },
+    { "id": "alakazam-dudunsparce", "label": "Alakazam Powerful Hand", "limitless": { "share": 6.41, "points": 1032 } },
+    { "id": "festival-lead", "label": "Festival Lead", "limitless": { "share": 5.69, "points": 917 } },
+    { "id": "ogerpon-meganium-hydrapple", "label": "Hydrapple ex", "limitless": { "share": 4.32, "points": 696 }, "trainerHill": { "share": 6.2 } },
+    { "id": "dhelmise", "label": "Dhelmise Hide n' Sneak", "limitless": { "share": 4.0, "points": 644 }, "trainerHill": { "share": 3.9 } },
+    { "id": "crustle", "label": "Crustle Mysterious Rock Inn", "limitless": { "share": 2.8, "points": 451 }, "trainerHill": { "share": 4.3 } },
+    { "id": "mega-lopunny", "label": "Mega Lopunny ex", "limitless": { "share": 2.71, "points": 437 } }
+  ],
+  "matrix": {}
+}
