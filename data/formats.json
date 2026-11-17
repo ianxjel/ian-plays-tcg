@@ -1,0 +1,41 @@
+{
+  "updated": "2026-11-17",
+  "formats": [
+    {
+      "id": "tef-30c",
+      "name": "30th Celebration format",
+      "code": "TEF–30C",
+      "start": null,
+      "end": "2026-11-19",
+      "data": "data/meta/tef-30c.json",
+      "note": "Temporal Forces through 30th Celebration."
+    },
+    {
+      "id": "tef-dlr",
+      "name": "Delta Reign format",
+      "code": "TEF–DLR",
+      "start": "2026-11-20",
+      "end": "2027-02-18",
+      "endEstimated": true,
+      "data": "data/meta/tef-dlr.json",
+      "note": "Delta Reign released Nov 6, 2026 (Nov 5 on Pokémon TCG Live) and is tournament legal from Nov 20."
+    }
+  ],
+  "setChanges": [
+    {
+      "set": "Delta Reign",
+      "release": "2026-11-06",
+      "legal": "2026-11-20",
+      "confirmed": true,
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Delta_Reign_(TCG)"
+    },
+    {
+      "set": "Flowing Fists",
+      "release": "2027-02-05",
+      "legal": "2027-02-19",
+      "confirmed": false,
+      "note": "Release date reported, not yet confirmed by The Pokémon Company. Legal date is an estimate: two weeks after release, like Delta Reign.",
+      "source": "https://www.wargamer.com/pokemon-trading-card-game/flowing-fists"
+    }
+  ]
+}
