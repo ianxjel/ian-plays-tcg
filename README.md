@@ -2,7 +2,8 @@
 
 A small static site for my Pokémon TCG decks:
 
-- **Meta** (`index.html`): the top 10 decks of the current Standard format, a countdown to the next set change, and a matchup grid from Limitless and Trainer Hill.
+- **Meta** (`index.html`): the top 10 decks of the current Standard format, a countdown to the next set change, the latest major event, and a "who beats who" chart (grid or list) from Limitless and Trainer Hill.
+- **Guides** (`guides.html`, `guide.html?id=…`): one page per top-10 deck. Who beats it in real results, then a section for every other top deck: what it has going for it, what to watch out for, a game plan, and a quick simulation.
 - **My decks** (`decks.html`): decks I've built or made up, with simplified lists.
 - **Deck page** (`deck.html?id=…`): setup odds, and every matchup against the top 10 with dropdowns for setup, turn plan, why simulated games were won or lost, and gameplay suggestions.
 
@@ -51,7 +52,7 @@ Add results to the deck's `record` list and the deck page shows them in the "You
 
 - `data/formats.json`: formats and set changes (release and tournament-legal dates). The countdown and format rail read this.
 - `data/meta/<format>.json`: top decks with shares from Limitless and Trainer Hill, and the matchup matrices.
-- `data/archetypes.json`: one profile per meta deck: how it plays, how to beat it, a sample list, and the simulator model.
+- `data/archetypes.json`: one profile per meta deck: how it plays, how to beat it, a sample list, and the simulator model. The guide pages' matchup notes are worked out from these profiles by `assets/js/insights.js`, so getting HP, damage, Weakness, prizes and flags right there is what keeps the guides right.
 
 After changing meta data or archetype models, run `node tools/calibrate.mjs` to re-check the simulator against real results. It rewrites `data/sim-calibration.json`.
 

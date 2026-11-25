@@ -72,7 +72,8 @@
         "dmg": {
           "base": 200
         },
-        "spread": 60
+        "spread": 60,
+        "spreadName": "Phantom Dive"
       },
       {
         "name": "Chi-Yu",

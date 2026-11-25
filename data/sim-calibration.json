@@ -4,9 +4,9 @@
   "gamesPerMatchup": 1500,
   "matchups": 90,
   "shrink": 0.45,
-  "maeRaw": 8.9,
-  "maeCalibrated": 6.8,
+  "maeRaw": 9.2,
+  "maeCalibrated": 6.9,
   "maeAlways50": 8,
-  "favoredAgree": 45,
+  "favoredAgree": 44,
   "favoredTotal": 55
 }

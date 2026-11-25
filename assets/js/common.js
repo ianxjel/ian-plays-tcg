@@ -94,7 +94,7 @@ export function markNav() {
   const here = location.pathname.split('/').pop() || 'index.html';
   for (const a of document.querySelectorAll('.nav a')) {
     const target = a.getAttribute('href');
-    if (target === here || (here === 'deck.html' && target === 'decks.html')) a.setAttribute('aria-current', 'page');
+    if (target === here || (here === 'deck.html' && target === 'decks.html') || (here === 'guide.html' && target === 'guides.html')) a.setAttribute('aria-current', 'page');
   }
 }
 
@@ -110,4 +110,30 @@ export function prizeMap(key) {
   for (const n of kos) wrap.append(h('span.prize-ko', Array.from({ length: n }, () => h('span.prize'))));
   if (gift) wrap.append(h('span.prize-ko', { title: 'Prizes from their self-KO' }, Array.from({ length: Number(gift) }, () => h('span.prize.gift'))));
   return wrap;
+}
+
+// Matchup lookup for one data source. Falls back to the other deck's side of the same matchup.
+export function matrixLookup(meta, source) {
+  const recs = meta.matrix?.[source] || [];
+  const direct = new Map();
+  for (const r of recs) {
+    const key = `${r[0]}|${r[1]}`;
+    if (!direct.has(key) || r[5] === 'meta') direct.set(key, r);
+  }
+  return (a, b) => {
+    const d = direct.get(`${a}|${b}`);
+    if (d) return { w: d[2], l: d[3], t: d[4], from: d[5] || 'row' };
+    const inv = direct.get(`${b}|${a}`);
+    if (inv) return { w: inv[3], l: inv[2], t: inv[4], from: 'inverse' };
+    return null;
+  };
+}
+
+// Favored / even / unfavored, from the first deck's point of view.
+export function verdict(wr) {
+  if (wr === null || wr === undefined) return { key: 'none', label: 'no data', mark: '' };
+  const p = Math.round(wr * 100); // judge on the number people see
+  if (p >= 55) return { key: 'fav', label: 'favored', mark: '▲' };
+  if (p <= 45) return { key: 'unfav', label: 'unfavored', mark: '▼' };
+  return { key: 'even', label: 'even', mark: '' };
 }
