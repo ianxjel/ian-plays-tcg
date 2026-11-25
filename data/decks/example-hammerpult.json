@@ -9,40 +9,141 @@
   "archetypeRef": "dragapult",
   "list": "Pokémon: 19\n4 Dreepy ASC 247\n4 Drakloak ASC 248\n2 Dragapult ex PRE 165\n1 Dragapult ex TWM 130\n2 Munkidori TWM 95\n1 Budew ASC 221\n1 Chi-Yu TWM 39\n1 Dunsparce TEF 128\n1 Dudunsparce TEF 129\n1 Meowth ex POR 121\n1 Fezandipiti ex SFA 92\n\nTrainer: 32\n4 Lillie's Determination MEG 184\n2 Boss's Orders LOR-TG 24\n1 Boss's Orders MEG 114\n2 Crispin PRE 171\n1 Rosa's Encouragement POR 123\n1 Judge POR 76\n4 Crushing Hammer POR 71\n4 Buddy-Buddy Poffin TWM 223\n4 Poké Pad POR 113\n2 Night Stretcher SSP 251\n1 Night Stretcher ASC 196\n3 Ultra Ball BRS 186\n1 Unfair Stamp TWM 165\n2 Risky Ruins MEG 127\n\nEnergy: 9\n2 Basic {R} Energy Energy 46\n1 Basic {R} Energy SVE 10\n2 Basic {P} Energy SVE 21\n1 Basic {P} Energy CRZ 156\n3 Basic {D} Energy MEE 15",
   "pokemon": {
-    "Dreepy": { "hp": 70 },
-    "Drakloak": { "evolvesFrom": "Dreepy", "hp": 90 },
-    "Dragapult ex": { "evolvesFrom": "Drakloak", "hp": 320, "ex": true },
-    "Dunsparce": { "hp": 60 },
-    "Dudunsparce": { "evolvesFrom": "Dunsparce", "hp": 140 },
-    "Munkidori": { "hp": 110 },
-    "Budew": { "hp": 30 },
-    "Chi-Yu": { "hp": 110 },
-    "Meowth ex": { "hp": 170, "ex": true },
-    "Fezandipiti ex": { "hp": 210, "ex": true }
+    "Dreepy": {
+      "hp": 70
+    },
+    "Drakloak": {
+      "evolvesFrom": "Dreepy",
+      "hp": 90
+    },
+    "Dragapult ex": {
+      "evolvesFrom": "Drakloak",
+      "hp": 320,
+      "ex": true
+    },
+    "Dunsparce": {
+      "hp": 60
+    },
+    "Dudunsparce": {
+      "evolvesFrom": "Dunsparce",
+      "hp": 140
+    },
+    "Munkidori": {
+      "hp": 110
+    },
+    "Budew": {
+      "hp": 30
+    },
+    "Chi-Yu": {
+      "hp": 110
+    },
+    "Meowth ex": {
+      "hp": 170,
+      "ex": true
+    },
+    "Fezandipiti ex": {
+      "hp": 210,
+      "ex": true
+    }
   },
-  "lines": [{ "basic": "Dreepy", "stage1": "Drakloak", "stage2": "Dragapult ex", "energy": 2 }],
+  "lines": [
+    {
+      "basic": "Dreepy",
+      "stage1": "Drakloak",
+      "stage2": "Dragapult ex",
+      "energy": 2
+    }
+  ],
   "model": {
-    "starter": { "name": "Dreepy", "hp": 70, "prizes": 1 },
+    "starter": {
+      "name": "Dreepy",
+      "hp": 70,
+      "prizes": 1
+    },
     "attackers": [
-      { "name": "Dragapult ex", "hp": 320, "prizes": 2, "type": "Dragon", "ex": true, "energy": 2, "weight": 0.9, "dmg": { "base": 200 }, "spread": 60 },
-      { "name": "Chi-Yu", "hp": 110, "prizes": 1, "type": "Fire", "weakness": "Water", "energy": 2, "weight": 0.1, "dmg": { "base": 90, "sd": 30 } }
+      {
+        "name": "Dragapult ex",
+        "hp": 320,
+        "prizes": 2,
+        "type": "Dragon",
+        "ex": true,
+        "energy": 2,
+        "weight": 0.9,
+        "dmg": {
+          "base": 200
+        },
+        "spread": 60
+      },
+      {
+        "name": "Chi-Yu",
+        "hp": 110,
+        "prizes": 1,
+        "type": "Fire",
+        "weakness": "Water",
+        "energy": 2,
+        "weight": 0.1,
+        "dmg": {
+          "base": 90,
+          "sd": 30
+        }
+      }
     ],
     "bench": [
-      { "name": "Dreepy", "hp": 70, "prizes": 1, "p": 0.6, "line": true },
-      { "name": "Drakloak", "hp": 90, "prizes": 1, "p": 0.6, "line": true },
-      { "name": "Munkidori", "hp": 110, "prizes": 1, "p": 0.55 },
-      { "name": "Dudunsparce", "hp": 140, "prizes": 1, "p": 0.4 },
-      { "name": "Meowth ex", "hp": 170, "prizes": 2, "p": 0.6 },
-      { "name": "Fezandipiti ex", "hp": 210, "prizes": 2, "p": 0.4 }
+      {
+        "name": "Dreepy",
+        "hp": 70,
+        "prizes": 1,
+        "p": 0.6,
+        "line": true
+      },
+      {
+        "name": "Drakloak",
+        "hp": 90,
+        "prizes": 1,
+        "p": 0.6,
+        "line": true
+      },
+      {
+        "name": "Munkidori",
+        "hp": 110,
+        "prizes": 1,
+        "p": 0.55
+      },
+      {
+        "name": "Dudunsparce",
+        "hp": 140,
+        "prizes": 1,
+        "p": 0.4
+      },
+      {
+        "name": "Meowth ex",
+        "hp": 170,
+        "prizes": 2,
+        "p": 0.6
+      },
+      {
+        "name": "Fezandipiti ex",
+        "hp": 210,
+        "prizes": 2,
+        "p": 0.4
+      }
     ],
     "consistency": 0.88,
     "gust": 0.6,
     "stock": 4,
     "benchPrep": 0.55,
     "reload": 0.75,
-    "pings": { "dmg": 30, "p": 0.45 },
-    "disrupt": { "energy": 0.25, "hand": 0.2 },
-    "reliesOn": { "evolved": 0.35 },
+    "pings": {
+      "dmg": 30,
+      "p": 0.45
+    },
+    "disrupt": {
+      "energy": 0.25,
+      "hand": 0.2
+    },
+    "reliesOn": {
+      "evolved": 0.35
+    },
     "setupFragility": 0.6,
     "energyFragility": 0.5
   },
@@ -66,7 +167,9 @@
   },
   "matchups": {
     "mega-rayquaza": {
-      "setup": ["Bench two Dreepy and Dunsparce turn 1; keep Crushing Hammers for their Fire and Lightning Energy."],
+      "setup": [
+        "Bench two Dreepy and Dunsparce turn 1; keep Crushing Hammers for their Fire and Lightning Energy."
+      ],
       "turns": [
         "Turn 2: Drakloak ×2. Hammer the Energy on a benched Rayquaza: Storm Emerald counts Energy on their whole board.",
         "Turn 3: Phantom Dive the Active and drop 6 counters on a benched Mega Rayquaza ex (280 HP).",
@@ -79,7 +182,9 @@
       ]
     },
     "dragapult": {
-      "setup": ["Race to the first Phantom Dive and keep the bench small: your Dreepy (70 HP) dies to their spread."],
+      "setup": [
+        "Race to the first Phantom Dive and keep the bench small: your Dreepy (70 HP) dies to their spread."
+      ],
       "turns": [
         "Turn 2: Drakloak and Recon Directive. Hammer their Dragapult line's Energy if they're a turn ahead.",
         "Turn 3: Phantom Dive their Active and put counters on their Drakloak (90 HP) or Dreepy to set up a double KO.",
@@ -92,7 +197,9 @@
       ]
     },
     "basic-box": {
-      "setup": ["They attack on turn 1. Lead with a single-prize Pokémon and bench only what you need."],
+      "setup": [
+        "They attack on turn 1. Lead with a single-prize Pokémon and bench only what you need."
+      ],
       "turns": [
         "Turn 1–2: expect your Active to be KO'd; keep two Dreepy lines going.",
         "Turn 2: Hammer whichever attacker they powered (Raging Bolt ex, Clefairy ex).",
@@ -101,11 +208,13 @@
       "tips": [
         "Lillie's Clefairy ex makes your Dragon Pokémon weak to Psychic. KO it first.",
         "Every Pokémon they have gives 2 or 3 prizes: three KOs, or two on Kangaskhan, win.",
-        "Real results favor Basic Box here (59%), so play for tempo, not value."
+        "Real results favor Basic Box here, so play for tempo, not value."
       ]
     },
     "slowking": {
-      "setup": ["Bench Dunsparce early; this is a long single-prize game and Dudunsparce keeps you drawing."],
+      "setup": [
+        "Bench Dunsparce early; this is a long single-prize game and Dudunsparce keeps you drawing."
+      ],
       "turns": [
         "Turn 2: KO Slowpoke before it evolves if you can reach it.",
         "Turn 3+: Phantom Dive OHKOs Slowking (120 HP); spread on benched Slowpoke (70 HP) for 2 prizes a turn."
@@ -117,7 +226,9 @@
       ]
     },
     "ogerpon-meganium-hydrapple": {
-      "setup": ["Take out their engine: Meganium (160 HP, 1 prize) doubles their Energy."],
+      "setup": [
+        "Take out their engine: Meganium (160 HP, 1 prize) doubles their Energy."
+      ],
       "turns": [
         "Turn 2: Hammer the Ogerpon that has the most Energy.",
         "Turn 3: Phantom Dive Teal Mask Ogerpon ex (210 HP) with Munkidori, or gust Meganium.",
@@ -125,24 +236,26 @@
       ],
       "tips": [
         "Myriad Leaf Shower counts Energy on both Active Pokémon, so a lightly-powered Active takes less damage.",
-        "Hydrapple ex heals, so finish it in back-to-back turns.",
-        "This is even on Limitless (50%)."
+        "Hydrapple ex heals, so finish it in back-to-back turns."
       ]
     },
     "alakazam-dudunsparce": {
-      "setup": ["Their damage is 2 counters per card in their hand. Judge and Unfair Stamp shrink it."],
+      "setup": [
+        "Their damage is 2 counters per card in their hand. Judge and Unfair Stamp shrink it."
+      ],
       "turns": [
         "Turn 2: spread is not online yet; gust Abra or Kadabra with Boss's Orders if it stops Alakazam.",
         "Turn 3+: Phantom Dive OHKOs Alakazam (140 HP); put counters on Abra (50) and Kadabra (80)."
       ],
       "tips": [
         "Judge the turn before they plan a big Powerful Hand.",
-        "Every one of their Pokémon is single-prize, so bench KOs are how you win the race.",
-        "Favored on Limitless (55%)."
+        "Every one of their Pokémon is single-prize, so bench KOs are how you win the race."
       ]
     },
     "n-zoroark": {
-      "setup": ["Zoroark ex has 280 HP. Pre-damage the benched one so your next Phantom Dive KOs it."],
+      "setup": [
+        "Zoroark ex has 280 HP. Pre-damage the benched one so your next Phantom Dive KOs it."
+      ],
       "turns": [
         "Turn 2: KO N's Zorua (70 HP) on the bench with Boss's Orders if you can.",
         "Turn 3: Phantom Dive and put 60 on the benched Zoroark ex.",
@@ -151,43 +264,46 @@
       "tips": [
         "Team Rocket's Watchtower does nothing to you (Dragapult isn't Colorless).",
         "Their Munkidori moves counters onto your Pokémon too; count it before you leave a Dragapult at low HP.",
-        "Unfavored on Limitless (38%): you need the spread plan to work."
+        "Unfavored on Limitless: you need the spread plan to work."
       ]
     },
     "mega-excadrill": {
-      "setup": ["Mega Excadrill ex needs a lot of Metal Energy, so Crushing Hammer is at its best here."],
+      "setup": [
+        "Mega Excadrill ex needs a lot of Metal Energy, so Crushing Hammer is at its best here."
+      ],
       "turns": [
         "Turn 2: Hammer whatever Energy they attached; spread later on Beldum or Metang to slow their engine.",
         "Turn 3+: two Phantom Dives with 60 pre-placed KO a 340 HP Excadrill for 3 prizes."
       ],
       "tips": [
         "Don't let Excadrill reach 2 extra Energy: Maximum Drilling then does 330 and OHKOs you.",
-        "Two Mega KOs win the game.",
-        "Close to even on Limitless (46%)."
+        "Two Mega KOs win the game."
       ]
     },
     "dhelmise": {
-      "setup": ["Their Hide 'n' Sneak Pokémon ignore your bench counters. Spread only works on Dhelmise and their ex."],
+      "setup": [
+        "Their Hide 'n' Sneak Pokémon ignore your bench counters. Spread only works on Dhelmise and their ex."
+      ],
       "turns": [
         "Turn 2–3: gust Lillie's Clefairy ex the moment it hits the bench.",
         "Turn 3+: Phantom Dive OHKOs Dhelmise (140 HP); put spread on Clefairy ex or Bloodmoon Ursaluna ex."
       ],
       "tips": [
         "Clefairy ex makes Dragapult weak to Psychic, letting Dhelmise OHKO you. It is your number one target.",
-        "Chi-Yu (single prize) is a good trade into Banette.",
-        "Your worst matchup on Limitless (36%)."
+        "Chi-Yu (single prize) is a good trade into Banette."
       ]
     },
     "talonflame-dusknoir": {
-      "setup": ["Each Cursed Blast they use gives you a prize. Keep 130-HP-or-less 2-prizers off your bench."],
+      "setup": [
+        "Each Cursed Blast they use gives you a prize. Keep 130-HP-or-less 2-prizers off your bench."
+      ],
       "turns": [
         "Turn 2: spread is not online, so Hammer the Kangaskhan's Energy.",
         "Turn 3+: Phantom Dive Talonflame ex (280 HP) with 60 already on it plus Munkidori for a KO; put counters on Duskull and Dusclops."
       ],
       "tips": [
         "Mega Kangaskhan ex has 300 HP: plan two hits, and take the 3 prizes.",
-        "Don't bench Meowth ex late: Cursed Blast plus an attack takes it for 2.",
-        "Favored on Limitless (62%)."
+        "Don't bench Meowth ex late: Cursed Blast plus an attack takes it for 2."
       ]
     }
   },
