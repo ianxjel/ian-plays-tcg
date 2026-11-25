@@ -1,0 +1,69 @@
+{
+  "format": "tef-dlr",
+  "captured": "2026-11-17",
+  "headline": "Online events with Delta Reign legal",
+  "sources": {
+    "limitless": {
+      "label": "Limitless (online)",
+      "url": "https://play.limitlesstcg.com/decks?format=standard&set=DLR",
+      "note": "Standard, set filter DLR: 133 online tournaments, 7,696 players, 16,793 matches at capture. Win % = wins / (wins + losses + ties). Each matrix cell comes from the row deck's matchup page, so A vs B and B vs A can differ slightly."
+    },
+    "trainerHill": {
+      "label": "Trainer Hill",
+      "url": "https://www.trainerhill.com/meta",
+      "note": "Trainer Hill loads its data in the browser, so these figures come from its indexed pages on Nov 17 and the filter settings were not visible. Win % counts a tie as one third of a win, as Trainer Hill does. Rows for Dragapult and Mega Excadrill come from their decklist pages; other rows come from the meta matrix."
+    }
+  },
+  "top": [
+    { "id": "mega-rayquaza", "limitless": { "share": 9.54, "count": 734, "w": 1551, "l": 1610, "t": 23 }, "trainerHill": { "share": 4.2 } },
+    { "id": "dragapult", "limitless": { "share": 9.15, "count": 704, "w": 1691, "l": 1446, "t": 70 }, "trainerHill": { "share": 12.2 } },
+    { "id": "basic-box", "limitless": { "share": 5.8, "count": 446, "w": 1020, "l": 898, "t": 61 }, "trainerHill": { "share": 6.3 } },
+    { "id": "slowking", "limitless": { "share": 4.81, "count": 370, "w": 727, "l": 780, "t": 31 }, "trainerHill": { "share": 4.9 } },
+    { "id": "ogerpon-meganium-hydrapple", "limitless": { "share": 3.68, "count": 283, "w": 703, "l": 597, "t": 12 }, "trainerHill": { "share": 4.2 } },
+    { "id": "alakazam-dudunsparce", "limitless": { "share": 3.48, "count": 268, "w": 589, "l": 557, "t": 32 }, "trainerHill": { "share": 4.1 } },
+    { "id": "n-zoroark", "limitless": { "share": 3.38, "count": 260, "w": 574, "l": 529, "t": 45 }, "trainerHill": { "share": 4.0 } },
+    { "id": "mega-excadrill", "limitless": { "share": 2.99, "count": 230, "w": 504, "l": 487, "t": 10 } },
+    { "id": "dhelmise", "limitless": { "share": 2.87, "count": 221, "w": 471, "l": 481, "t": 24 }, "trainerHill": { "share": 5.0 } },
+    { "id": "talonflame-dusknoir", "limitless": { "share": 2.86, "count": 220, "w": 459, "l": 486, "t": 3 } }
+  ],
+  "alsoNotable": [
+    { "id": "dragapult-dudunsparce", "limitless": { "share": 2.55, "count": 196, "w": 559, "l": 421, "t": 33 } },
+    { "id": "crustle", "limitless": { "share": 2.4, "count": 185, "w": 436, "l": 382, "t": 16 } }
+  ],
+  "matrix": {
+    "limitless": [
+      ["mega-rayquaza", "mega-rayquaza", 161, 161, 2], ["mega-rayquaza", "dragapult", 106, 160, 1], ["mega-rayquaza", "basic-box", 95, 108, 2], ["mega-rayquaza", "slowking", 76, 72, 2], ["mega-rayquaza", "ogerpon-meganium-hydrapple", 60, 74, 0], ["mega-rayquaza", "alakazam-dudunsparce", 61, 64, 1], ["mega-rayquaza", "n-zoroark", 28, 54, 1], ["mega-rayquaza", "mega-excadrill", 30, 48, 0], ["mega-rayquaza", "dhelmise", 52, 27, 0], ["mega-rayquaza", "talonflame-dusknoir", 68, 37, 0], ["mega-rayquaza", "crustle", 54, 28, 0], ["mega-rayquaza", "dragapult-dudunsparce", 40, 76, 1],
+
+      ["dragapult", "mega-rayquaza", 160, 106, 1], ["dragapult", "dragapult", 170, 170, 6], ["dragapult", "basic-box", 81, 112, 3], ["dragapult", "slowking", 73, 80, 6], ["dragapult", "ogerpon-meganium-hydrapple", 73, 69, 3], ["dragapult", "alakazam-dudunsparce", 59, 46, 2], ["dragapult", "n-zoroark", 50, 77, 6], ["dragapult", "mega-excadrill", 43, 49, 1], ["dragapult", "dhelmise", 33, 55, 3], ["dragapult", "talonflame-dusknoir", 64, 39, 0], ["dragapult", "crustle", 38, 49, 1], ["dragapult", "dragapult-dudunsparce", 68, 48, 6],
+
+      ["basic-box", "mega-rayquaza", 99, 91, 2], ["basic-box", "dragapult", 102, 74, 3], ["basic-box", "basic-box", 48, 48, 6], ["basic-box", "slowking", 40, 42, 4], ["basic-box", "ogerpon-meganium-hydrapple", 28, 52, 2], ["basic-box", "alakazam-dudunsparce", 27, 35, 2], ["basic-box", "n-zoroark", 29, 30, 2], ["basic-box", "mega-excadrill", 34, 25, 1], ["basic-box", "dhelmise", 29, 16, 2], ["basic-box", "talonflame-dusknoir", 22, 25, 1], ["basic-box", "crustle", 16, 33, 0], ["basic-box", "dragapult-dudunsparce", 25, 26, 5],
+
+      ["slowking", "mega-rayquaza", 71, 75, 2], ["slowking", "dragapult", 79, 70, 6], ["slowking", "basic-box", 47, 44, 4], ["slowking", "slowking", 32, 32, 0], ["slowking", "ogerpon-meganium-hydrapple", 23, 32, 1], ["slowking", "alakazam-dudunsparce", 23, 29, 3], ["slowking", "n-zoroark", 25, 34, 2], ["slowking", "mega-excadrill", 24, 29, 0], ["slowking", "dhelmise", 18, 21, 0], ["slowking", "talonflame-dusknoir", 10, 28, 0], ["slowking", "crustle", 23, 21, 0], ["slowking", "dragapult-dudunsparce", 17, 27, 0],
+
+      ["ogerpon-meganium-hydrapple", "mega-rayquaza", 74, 60, 0], ["ogerpon-meganium-hydrapple", "dragapult", 69, 73, 3], ["ogerpon-meganium-hydrapple", "basic-box", 57, 33, 2], ["ogerpon-meganium-hydrapple", "slowking", 32, 23, 1], ["ogerpon-meganium-hydrapple", "ogerpon-meganium-hydrapple", 27, 27, 0], ["ogerpon-meganium-hydrapple", "alakazam-dudunsparce", 16, 25, 0], ["ogerpon-meganium-hydrapple", "n-zoroark", 25, 8, 0], ["ogerpon-meganium-hydrapple", "mega-excadrill", 24, 12, 1], ["ogerpon-meganium-hydrapple", "dhelmise", 17, 8, 1], ["ogerpon-meganium-hydrapple", "talonflame-dusknoir", 22, 20, 0], ["ogerpon-meganium-hydrapple", "crustle", 11, 20, 1], ["ogerpon-meganium-hydrapple", "dragapult-dudunsparce", 23, 17, 0],
+
+      ["alakazam-dudunsparce", "mega-rayquaza", 64, 61, 1], ["alakazam-dudunsparce", "dragapult", 46, 60, 2], ["alakazam-dudunsparce", "basic-box", 40, 28, 2], ["alakazam-dudunsparce", "slowking", 30, 24, 3], ["alakazam-dudunsparce", "ogerpon-meganium-hydrapple", 25, 17, 0], ["alakazam-dudunsparce", "alakazam-dudunsparce", 19, 19, 4], ["alakazam-dudunsparce", "n-zoroark", 18, 24, 4], ["alakazam-dudunsparce", "mega-excadrill", 17, 13, 2], ["alakazam-dudunsparce", "dhelmise", 15, 22, 1], ["alakazam-dudunsparce", "talonflame-dusknoir", 12, 21, 0], ["alakazam-dudunsparce", "crustle", 8, 28, 0], ["alakazam-dudunsparce", "dragapult-dudunsparce", 16, 21, 0],
+
+      ["n-zoroark", "mega-rayquaza", 54, 25, 1], ["n-zoroark", "dragapult", 71, 48, 6], ["n-zoroark", "basic-box", 30, 29, 2], ["n-zoroark", "slowking", 33, 21, 2], ["n-zoroark", "ogerpon-meganium-hydrapple", 8, 22, 0], ["n-zoroark", "alakazam-dudunsparce", 22, 16, 4], ["n-zoroark", "n-zoroark", 21, 21, 2], ["n-zoroark", "mega-excadrill", 13, 18, 0], ["n-zoroark", "dhelmise", 18, 7, 2], ["n-zoroark", "talonflame-dusknoir", 18, 8, 0], ["n-zoroark", "crustle", 10, 25, 0], ["n-zoroark", "dragapult-dudunsparce", 12, 20, 2],
+
+      ["mega-excadrill", "mega-rayquaza", 45, 26, 0], ["mega-excadrill", "dragapult", 29, 32, 1], ["mega-excadrill", "basic-box", 23, 32, 1], ["mega-excadrill", "slowking", 25, 20, 0], ["mega-excadrill", "ogerpon-meganium-hydrapple", 9, 21, 1], ["mega-excadrill", "alakazam-dudunsparce", 10, 13, 2], ["mega-excadrill", "n-zoroark", 14, 9, 0], ["mega-excadrill", "mega-excadrill", 12, 12, 0], ["mega-excadrill", "dhelmise", 11, 8, 1], ["mega-excadrill", "talonflame-dusknoir", 11, 12, 0], ["mega-excadrill", "crustle", 22, 6, 0], ["mega-excadrill", "dragapult-dudunsparce", 16, 8, 0],
+
+      ["dhelmise", "mega-rayquaza", 27, 52, 0], ["dhelmise", "dragapult", 55, 33, 3], ["dhelmise", "basic-box", 17, 31, 2], ["dhelmise", "slowking", 22, 18, 0], ["dhelmise", "ogerpon-meganium-hydrapple", 8, 17, 1], ["dhelmise", "alakazam-dudunsparce", 22, 15, 1], ["dhelmise", "n-zoroark", 9, 18, 2], ["dhelmise", "mega-excadrill", 10, 13, 1], ["dhelmise", "dhelmise", 22, 22, 0], ["dhelmise", "talonflame-dusknoir", 10, 27, 0], ["dhelmise", "crustle", 13, 13, 0], ["dhelmise", "dragapult-dudunsparce", 12, 15, 0],
+
+      ["talonflame-dusknoir", "mega-rayquaza", 30, 64, 0], ["talonflame-dusknoir", "dragapult", 38, 53, 0], ["talonflame-dusknoir", "basic-box", 25, 22, 1], ["talonflame-dusknoir", "slowking", 28, 10, 0], ["talonflame-dusknoir", "ogerpon-meganium-hydrapple", 18, 19, 0], ["talonflame-dusknoir", "alakazam-dudunsparce", 20, 12, 0], ["talonflame-dusknoir", "n-zoroark", 6, 17, 0], ["talonflame-dusknoir", "mega-excadrill", 13, 12, 0], ["talonflame-dusknoir", "dhelmise", 24, 10, 0], ["talonflame-dusknoir", "talonflame-dusknoir", 9, 9, 0], ["talonflame-dusknoir", "crustle", 10, 8, 0], ["talonflame-dusknoir", "dragapult-dudunsparce", 6, 24, 0]
+    ],
+    "trainerHill": [
+      ["alakazam-dudunsparce", "alakazam-dudunsparce", 61, 61, 4, "meta"], ["alakazam-dudunsparce", "basic-box", 109, 67, 15, "meta"], ["alakazam-dudunsparce", "crustle", 16, 71, 3, "meta"], ["alakazam-dudunsparce", "dhelmise", 68, 56, 17, "meta"], ["alakazam-dudunsparce", "dragapult-dudunsparce", 29, 24, 2, "meta"], ["alakazam-dudunsparce", "dragapult", 135, 182, 41, "meta"], ["alakazam-dudunsparce", "mega-excadrill", 52, 27, 10, "meta"], ["alakazam-dudunsparce", "mega-rayquaza", 44, 39, 4, "meta"], ["alakazam-dudunsparce", "n-zoroark", 50, 57, 5, "meta"], ["alakazam-dudunsparce", "ogerpon-meganium-hydrapple", 58, 43, 14, "meta"], ["alakazam-dudunsparce", "slowking", 73, 57, 9, "meta"],
+
+      ["basic-box", "alakazam-dudunsparce", 67, 109, 15, "meta"], ["basic-box", "basic-box", 132, 132, 8, "meta"], ["basic-box", "crustle", 25, 93, 4, "meta"], ["basic-box", "dhelmise", 113, 66, 26, "meta"], ["basic-box", "dragapult-dudunsparce", 53, 44, 4, "meta"], ["basic-box", "dragapult", 319, 247, 56, "meta"], ["basic-box", "mega-excadrill", 73, 65, 17, "meta"], ["basic-box", "mega-rayquaza", 77, 73, 7, "meta"], ["basic-box", "n-zoroark", 92, 91, 10, "meta"], ["basic-box", "ogerpon-meganium-hydrapple", 67, 146, 9, "meta"], ["basic-box", "slowking", 102, 111, 21, "meta"],
+
+      ["crustle", "alakazam-dudunsparce", 71, 16, 3, "meta"], ["crustle", "basic-box", 93, 25, 4, "meta"], ["crustle", "crustle", 15, 15, 10, "meta"], ["crustle", "dhelmise", 40, 42, 8, "meta"],
+
+      ["slowking", "alakazam-dudunsparce", 57, 73, 9, "meta"], ["slowking", "basic-box", 111, 102, 21, "meta"], ["slowking", "crustle", 56, 40, 5, "meta"], ["slowking", "dhelmise", 57, 96, 26, "meta"], ["slowking", "dragapult-dudunsparce", 28, 40, 4, "meta"],
+
+      ["dragapult", "crustle", 62, 114, 34, "deck"], ["dragapult", "dhelmise", 194, 258, 79, "deck"], ["dragapult", "n-zoroark", 174, 220, 86, "deck"], ["dragapult", "basic-box", 244, 307, 79, "deck"], ["dragapult", "slowking", 202, 237, 69, "deck"], ["dragapult", "mega-excadrill", 108, 94, 31, "deck"], ["dragapult", "alakazam-dudunsparce", 172, 99, 62, "deck"], ["dragapult", "ogerpon-meganium-hydrapple", 194, 113, 60, "deck"],
+
+      ["mega-excadrill", "alakazam-dudunsparce", 22, 38, 8, "deck"], ["mega-excadrill", "ogerpon-meganium-hydrapple", 25, 37, 7, "deck"], ["mega-excadrill", "slowking", 37, 52, 6, "deck"], ["mega-excadrill", "basic-box", 42, 50, 5, "deck"], ["mega-excadrill", "dragapult", 118, 122, 29, "deck"], ["mega-excadrill", "dhelmise", 32, 29, 7, "deck"], ["mega-excadrill", "n-zoroark", 47, 31, 6, "deck"]
+    ]
+  }
+}
