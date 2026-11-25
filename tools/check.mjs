@@ -1,6 +1,8 @@
 // Sanity checks for the data files. Usage: node tools/check.mjs
 import { readFileSync, readdirSync } from 'node:fs';
 import { parseList, countCards } from '../assets/js/decklist.js';
+import { splitChapters } from '../assets/js/markdown.js';
+import { formatState } from '../assets/js/common.js';
 
 const root = new URL('..', import.meta.url);
 const read = (p) => JSON.parse(readFileSync(new URL(p, root)));
@@ -35,8 +37,54 @@ for (const f of files) {
 }
 for (const id of index) if (!files.includes(`${id}.json`)) problems.push(`data/decks/index.json lists "${id}" but the file is missing`);
 
+// Deck guides: every top-10 deck of the live format needs one, with a 60-card list and playthroughs.
+const REQUIRED = ['At a glance', 'The list', 'Card by card', 'Playthroughs', 'Matchup cheat sheet'];
+const guides = readdirSync(new URL('data/guides/', root)).filter((f) => f.endsWith('.md'));
+const live = formatState(F.formats).live;
+for (const t of read(live.data).top) if (!guides.includes(`${t.id}.md`)) problems.push(`data/guides/${t.id}.md: missing (it is a top-10 deck in ${live.id})`);
+for (const f of guides) {
+  const where = `data/guides/${f}`;
+  const id = f.replace(/\.md$/, '');
+  if (!A[id]) problems.push(`${where}: no archetype "${id}"`);
+  const text = readFileSync(new URL(where, root), 'utf8');
+  const g = splitChapters(text);
+  const titles = g.chapters.map((c) => c.title);
+  for (const r of REQUIRED) if (!titles.includes(r)) problems.push(`${where}: no "## ${r}" chapter`);
+  if (!g.meta.list || !g.meta.updated) problems.push(`${where}: front matter needs list and updated`);
+  const fences = [...text.matchAll(/```(\w+)\n([\s\S]*?)```/g)];
+  const lists = fences.filter((m) => m[1] === 'decklist');
+  if (lists.length !== 1) problems.push(`${where}: ${lists.length} decklist blocks (want 1)`);
+  for (const m of lists) {
+    const n = countCards(parseList(m[2]));
+    if (n.total !== 60) problems.push(`${where}: decklist has ${n.total} cards`);
+  }
+  const plays = fences.filter((m) => m[1] === 'play');
+  if (plays.length < 3) problems.push(`${where}: ${plays.length} playthroughs (want at least 3)`);
+  for (const m of plays) {
+    const lines = m[2].split('\n').filter((l) => l.trim());
+    if (!lines.some((l) => /^lesson:/i.test(l))) problems.push(`${where}: a playthrough has no lesson`);
+    for (const l of lines) if (!/^(setup|lesson|you \d+|opp \d+):\s/i.test(l)) problems.push(`${where}: playthrough line not understood: "${l.slice(0, 50)}"`);
+  }
+}
+
+// Streamed matches: decks must be known archetypes (or null with a label), events must exist, and each match needs a way to watch it.
+const S = read('data/streams.json');
+for (const [i, m] of S.matches.entries()) {
+  const where = `data/streams.json match ${i + 1}`;
+  const ev = S.events[m.event];
+  if (!ev) problems.push(`${where}: unknown event "${m.event}"`);
+  for (const side of [m.p1, m.p2]) {
+    if (side.deck && !A[side.deck]) problems.push(`${where}: unknown archetype "${side.deck}"`);
+    if (!side.deck && !side.label) problems.push(`${where}: a side with no deck needs a label`);
+  }
+  if (!Array.isArray(m.score) || m.score.length !== 2) problems.push(`${where}: score should be [p1 games, p2 games]`);
+  if (m.video && !/^https:\/\/(www\.)?(youtube\.com|youtu\.be|twitch\.tv)\//.test(m.video)) problems.push(`${where}: video should be a YouTube or Twitch link`);
+  if (!m.video && !(ev?.page && Number.isFinite(m.t))) problems.push(`${where}: no video, so it needs t and an event page`);
+}
+for (const [k, e] of Object.entries(S.events)) if (!F.formats.some((f) => f.id === e.format)) problems.push(`data/streams.json event ${k}: unknown format "${e.format}"`);
+
 if (problems.length) {
   console.log(problems.map((p) => `✗ ${p}`).join('\n'));
   process.exit(1);
 }
-console.log(`✓ ${Object.keys(A).length} archetypes, ${F.formats.length} formats, ${files.length} deck files look fine.`);
+console.log(`✓ ${Object.keys(A).length} archetypes, ${F.formats.length} formats, ${files.length} deck files, ${guides.length} guides and ${S.matches.length} streamed matches look fine.`);

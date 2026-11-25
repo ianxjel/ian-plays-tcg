@@ -8,10 +8,10 @@
       "limitless": "mega-rayquaza-ex",
       "summary": "Delta Reign's new deck: a Colorless box of Mega Rayquaza ex, Mega Kangaskhan ex and Talonflame ex, running Fire and Lightning Energy and Legendary Pyroduct.",
       "plan": [
-        "Mega Rayquaza ex (Basic, 280 HP) does 50 damage for each Fire and Lightning Energy on all of its Pokémon, so its damage grows every turn.",
+        "Mega Rayquaza ex (Basic, 280 HP) Storm Emerald does 50 damage for each Fire and Lightning Energy attached to all of your Pokémon, so its damage grows every turn.",
         "Ruler's Roar attaches a Basic Energy from the top 4 cards when Rayquaza is benched; Energy Switch moves it where needed.",
         "Mega Kangaskhan ex draws 2 from the Active Spot (Run Errand) and hits for 200 plus 50 per heads.",
-        "Talonflame ex (Stage 2, 280 HP) goes straight from hand to bench once a Colorless Mega ex is in play. Talon Hunt does 150 and searches 2 cards.",
+        "Talonflame ex (Stage 2, 280 HP) moves straight from hand to bench once any Mega Evolution Pokémon ex is in play (Excited Dive). Talon Hunt does 150 and searches 2 cards.",
         "Legendary Pyroduct turns off the abilities of Evolution Pokémon for both players."
       ],
       "keyCards": [
@@ -135,7 +135,8 @@
       },
       "engine": {
         "colorless": "Ruler's Roar, Run Errand and Talonflame's Excited Dive"
-      }
+      },
+      "limitlessId": 377
     },
     "dragapult": {
       "name": "Dragapult",
@@ -144,7 +145,7 @@
       "limitless": "dragapult-ex",
       "summary": "Stage 2 Dragon that hits for 200 and spreads 6 damage counters on the bench every turn. The most-played deck online, and 6 of the top 10 at LAIC.",
       "plan": [
-        "Dreepy, then Drakloak (Recon Directive digs 2 cards deep each turn), then Dragapult ex on turn 2 or 3.",
+        "Dreepy, then Drakloak (Recon Directive digs 2 cards deep each turn), then Dragapult ex on your third turn; the list has no Rare Candy.",
         "Phantom Dive does 200 to the Active and puts 6 damage counters on the bench in any split, setting up multi-KO turns.",
         "Hammer builds add 4 Crushing Hammer; Munkidori moves 3 damage counters from its side to yours.",
         "Meowth ex and Fezandipiti ex are the usual support ex."
@@ -263,7 +264,8 @@
       },
       "engine": {
         "evolved": "Drakloak's Recon Directive and Dudunsparce's draw"
-      }
+      },
+      "limitlessId": 284
     },
     "basic-box": {
       "name": "Basic Box",
@@ -407,17 +409,18 @@
       },
       "engine": {
         "colorless": "Mega Kangaskhan ex's Run Errand"
-      }
+      },
+      "limitlessId": 339
     },
     "slowking": {
       "name": "Slowking",
       "short": "Slowking",
       "energy": "Psychic",
       "limitless": "slowking-scr",
-      "summary": "Single-prize Psychic deck. Slowking's Seek Inspiration discards your top card and, if it is a Pokémon without a Rule Box, uses one of its attacks.",
+      "summary": "Psychic deck built on a single-prize attacker. Slowking's Seek Inspiration discards your top card and, if it is a Pokémon without a Rule Box, uses one of its attacks.",
       "plan": [
         "Slowpoke into Slowking (Stage 1, 120 HP) on turn 2.",
-        "The deck packs strong non-ex attackers to copy: Kyurem, Metagross, Annihilape, Zeraora.",
+        "The attacks it copies: Kyurem's Trifrost (110 to three of your opponent's Pokémon), Metagross's Metallic Hammer (150) and Zeraora's Thunder Raid (210 to a benched Pokémon ex).",
         "Ciphermaniac's Codebreaking and Academy at Night help control the top card.",
         "Mega Kangaskhan ex is the backup attacker."
       ],
@@ -543,7 +546,8 @@
         "gust": 0.45,
         "stock": 7,
         "setupFragility": 0.3
-      }
+      },
+      "limitlessId": 322
     },
     "ogerpon-meganium-hydrapple": {
       "name": "Ogerpon Meganium Hydrapple",
@@ -694,7 +698,8 @@
       },
       "engine": {
         "evolved": "Meganium's Wild Growth and Hydrapple ex's Ripening Charge"
-      }
+      },
+      "limitlessId": 352
     },
     "alakazam-dudunsparce": {
       "name": "Alakazam Dudunsparce",
@@ -815,7 +820,8 @@
       },
       "engine": {
         "evolved": "Psychic Draw and Dudunsparce's draw, which keep the hand big"
-      }
+      },
+      "limitlessId": 350
     },
     "n-zoroark": {
       "name": "N's Zoroark",
@@ -825,7 +831,7 @@
       "summary": "N's Zoroark ex copies the attacks of benched N's Pokémon (Night Joker) and draws with Trade. Team Rocket's Watchtower shuts off Colorless Pokémon abilities. Won LAIC 2026–27.",
       "plan": [
         "N's Zorua into N's Zoroark ex (280 HP) on turn 2, then Trade (discard 1, draw 2) every turn.",
-        "Night Joker uses N's Zekrom or N's Reshiram attacks for two Darkness Energy.",
+        "Night Joker uses a benched N's Zekrom's attacks for two Darkness Energy, usually Rampaging Thunder for 250 (that Zoroark then can't attack next turn).",
         "Munkidori moves damage counters onto your Pokémon; Watchtower blanks Colorless abilities."
       ],
       "keyCards": [
@@ -938,7 +944,8 @@
       },
       "engine": {
         "evolved": "Zoroark ex's Trade"
-      }
+      },
+      "limitlessId": 320
     },
     "mega-excadrill": {
       "name": "Mega Excadrill",
@@ -949,14 +956,14 @@
       "plan": [
         "Drilbur into Mega Excadrill ex, with a Beldum, Metang and Metagross line beside it and 16 Metal Energy.",
         "Maximum Drilling: 200, or 330 with 2 extra Energy.",
-        "Undermine (90, discard their top 2 cards) mills decks it can't damage. That is why it beats Crustle 74% of the time."
+        "Undermine (90, discard the top 2 cards of their deck) also mills, which matters against walls like Crustle."
       ],
       "keyCards": [
         "Mega Excadrill ex",
-        "Metagross",
+        "Metang",
         "Genesect ex",
         "Team Rocket's Petrel",
-        "Team Rocket's Transceiver"
+        "Jumbo Ice Cream"
       ],
       "beatIt": [
         "Fire Weakness.",
@@ -1079,7 +1086,8 @@
       },
       "engine": {
         "evolved": "its Beldum line's support"
-      }
+      },
+      "limitlessId": 376
     },
     "dhelmise": {
       "name": "Dhelmise",
@@ -1219,18 +1227,19 @@
         "gust": 0.6,
         "stock": 8,
         "setupFragility": 0.1
-      }
+      },
+      "limitlessId": 374
     },
     "talonflame-dusknoir": {
       "name": "Talonflame Dusknoir",
       "short": "Talonflame",
       "energy": "Colorless",
       "limitless": "talonflame-dusknoir",
-      "summary": "Mega Kangaskhan ex and Talonflame ex beat down while Dusknoir's Cursed Blast puts 13 damage counters on any Pokémon (then Dusknoir is Knocked Out and gives up 1 prize).",
+      "summary": "Talonflame ex attacks every turn off a single Ignition Energy while Dusknoir's Cursed Blast puts 13 damage counters on any Pokémon (Dusknoir is then Knocked Out and gives up 1 prize). Mega Kangaskhan ex draws cards and lets Talonflame ex drop straight onto the bench.",
       "plan": [
-        "Kangaskhan attacks early; Talonflame ex drops onto the bench for free once Kangaskhan is in play.",
+        "Mega Kangaskhan ex sits in the Active Spot to draw 2 a turn (Run Errand). With a Mega Evolution Pokémon ex in play, Talonflame ex moves from hand straight to the bench (Excited Dive).",
         "Cursed Blast plus an attack makes two-KO turns or picks off benched ex.",
-        "Jamming Tower turns off Pokémon Tools; Ignition Energy powers the attackers."
+        "Ignition Energy provides three Energy on an Evolution Pokémon and is discarded at the end of the turn, so Talon Hunt (150, then search 2 cards) costs one card a turn. Jamming Tower turns off Pokémon Tools."
       ],
       "keyCards": [
         "Mega Kangaskhan ex",
@@ -1261,20 +1270,6 @@
         },
         "attackers": [
           {
-            "name": "Mega Kangaskhan ex",
-            "hp": 300,
-            "prizes": 3,
-            "type": "Colorless",
-            "weakness": "Fighting",
-            "ex": true,
-            "weight": 0.55,
-            "dmg": {
-              "base": 200,
-              "coinUntilTails": 50
-            },
-            "energy": 3
-          },
-          {
             "name": "Talonflame ex",
             "hp": 280,
             "prizes": 2,
@@ -1282,11 +1277,25 @@
             "weakness": "Lightning",
             "resist": "Fighting",
             "ex": true,
-            "weight": 0.45,
+            "weight": 0.75,
             "dmg": {
               "base": 150
             },
-            "energy": 2
+            "energy": 1
+          },
+          {
+            "name": "Mega Kangaskhan ex",
+            "hp": 300,
+            "prizes": 3,
+            "type": "Colorless",
+            "weakness": "Fighting",
+            "ex": true,
+            "weight": 0.25,
+            "dmg": {
+              "base": 200,
+              "coinUntilTails": 50
+            },
+            "energy": 3
           }
         ],
         "snipe": {
@@ -1354,7 +1363,8 @@
       "engine": {
         "evolved": "Dusknoir's Cursed Blast",
         "colorless": "Run Errand and Excited Dive"
-      }
+      },
+      "limitlessId": 382
     },
     "crustle": {
       "name": "Crustle",
@@ -1467,7 +1477,8 @@
           "hand": 0.25
         },
         "setupFragility": 0.3
-      }
+      },
+      "limitlessId": 341
     },
     "festival-lead": {
       "name": "Festival Lead",
@@ -1564,7 +1575,8 @@
         "gust": 0.5,
         "stock": 8,
         "setupFragility": 0.2
-      }
+      },
+      "limitlessId": 336
     },
     "dragapult-dudunsparce": {
       "name": "Dragapult Dudunsparce",
@@ -1744,7 +1756,8 @@
         "gust": 0.5,
         "stock": 3,
         "setupFragility": 0.4
-      }
+      },
+      "limitlessId": 353
     }
   }
 }
