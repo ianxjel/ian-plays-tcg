@@ -59,7 +59,7 @@ After changing meta data or archetype models, run `node tools/calibrate.mjs` to 
 
 Each simulated game is a race to six prizes between two deck models. Your deck comes online when a goldfish of your actual 60 cards says it does (opening hands, search, evolutions, Energy). Meta decks use hand-built profiles. The sim tracks which factors show up in won and lost games: faster setup, prize trade, one-hit KOs, gust and spread prizes, damage walls, ability locks, disruption.
 
-It's a model, not the real game. Checked against real Limitless matchups between the top 10 decks, it picks the favored side about 3 times in 4 but is off by around 8 points on average, so its raw numbers are pulled halfway toward 50% before they're shown. The real-data columns are the score; the sim is for understanding why.
+It's a model, not the real game. Checked against real Limitless matchups between the top 10 decks, it picks the favored side about 4 times in 5 but is still off by around 7 points on average, so its raw numbers are pulled about halfway toward 50% before they're shown (the exact factor is in `data/sim-calibration.json`). The real-data columns are the score; the sim is for understanding why.
 
 ## Sources
 

@@ -25,7 +25,7 @@
       "beatIt": [
         "Its Megas give up 3 prizes each, so two KOs on Mega ex win the game.",
         "Lightning hits Rayquaza and Talonflame for double; Fighting hits Kangaskhan for double.",
-        "Team Rocket's Watchtower (Colorless Pokémon have no abilities) blanks Ruler's Roar, Run Errand and Excited Dive. N's Zoroark runs it and wins this matchup 68% of the time.",
+        "Team Rocket's Watchtower (Colorless Pokémon have no abilities) blanks Ruler's Roar, Run Errand and Excited Dive. N's Zoroark runs it and wins this matchup 61% of the time.",
         "If your engine is an Evolution Pokémon's ability, carry a stadium to bump Pyroduct."
       ],
       "sample": {
@@ -139,7 +139,7 @@
       "short": "Dragapult",
       "energy": "Dragon",
       "limitless": "dragapult-ex",
-      "summary": "Stage 2 Dragon that hits for 200 and spreads 6 damage counters on the bench every turn. The most-played deck at major events this year.",
+      "summary": "Stage 2 Dragon that hits for 200 and spreads 6 damage counters on the bench every turn. The most-played deck online, and 6 of the top 10 at LAIC.",
       "plan": [
         "Dreepy, then Drakloak (Recon Directive digs 2 cards deep each turn), then Dragapult ex on turn 2 or 3.",
         "Phantom Dive does 200 to the Active and puts 6 damage counters on the bench in any split, setting up multi-KO turns.",
@@ -157,14 +157,14 @@
       "beatIt": [
         "No Weakness and 320 HP: plan two-hit KOs, or use single-prize attackers so its 200 overkills.",
         "Keep 60-HP-or-less Pokémon off your bench: Phantom Dive farms them for free prizes.",
-        "Hide 'n' Sneak Pokémon (Dhelmise deck) ignore the bench damage counters; Dhelmise wins 60% here.",
+        "Hide 'n' Sneak Pokémon (Dhelmise deck) ignore the bench damage counters; Dhelmise wins 56% here.",
         "Gust Drakloak or Dreepy before Dragapult ex lands."
       ],
       "sample": {
-        "player": "Calvin Connor",
-        "event": "Special Event Buenos Aires (1st)",
-        "date": "2026-11-14",
-        "url": "https://limitlesstcg.com/decks/lists"
+        "player": "Owyn Kamerman",
+        "event": "LAIC 2026–27, São Paulo (3rd)",
+        "date": "2026-11-20",
+        "url": "https://limitlesstcg.com/tournaments/574/decklists"
       },
       "confidence": "high",
       "model": {
@@ -279,14 +279,14 @@
       ],
       "beatIt": [
         "Every Pokémon gives up 2 or 3 prizes, so single-prize attackers win the trade.",
-        "Crustle's Mysterious Rock Inn walls every ex attack; Crustle wins this 67% of the time.",
+        "Crustle's Mysterious Rock Inn walls every ex attack; Crustle wins this 71% of the time.",
         "Energy and hand disruption hurt it: its attackers need several Energy each."
       ],
       "sample": {
-        "player": "HenryGao",
-        "event": "Tournament of Doom! Birds! (1st of 454)",
-        "date": "2026-11-14",
-        "url": "https://play.limitlesstcg.com/tournament/6ae978a40c463890f304a3aa/player/henrygao/decklist"
+        "player": "Alex Schemanske",
+        "event": "LAIC 2026–27, São Paulo (12th)",
+        "date": "2026-11-20",
+        "url": "https://limitlesstcg.com/tournaments/574/decklists"
       },
       "confidence": "medium",
       "model": {
@@ -420,15 +420,15 @@
         "Mega Kangaskhan ex"
       ],
       "beatIt": [
-        "Darkness hits Slowking for double; N's Zoroark wins 59% here.",
-        "Talonflame Dusknoir wins 74%: snipes plus big hits outpace the 1-prize trade.",
+        "Darkness hits Slowking for double; N's Zoroark wins 56% here.",
+        "Talonflame Dusknoir wins 69%: snipes plus big hits outpace the 1-prize trade.",
         "Seek Inspiration whiffs when the top card is not a non-ex Pokémon. Hand disruption breaks their top-deck setup."
       ],
       "sample": {
-        "player": "MasterLeBui",
-        "event": "Surge's Winner Takes All (1st of 64)",
-        "date": "2026-11-12",
-        "url": "https://play.limitlesstcg.com/tournament/6af265ade99f3235a75e55c4/player/masterlebui/decklist"
+        "player": "Alejandro Luciano Eijo",
+        "event": "LAIC 2026–27, São Paulo (9th)",
+        "date": "2026-11-20",
+        "url": "https://limitlesstcg.com/tournaments/574/decklists"
       },
       "confidence": "medium",
       "model": {
@@ -556,7 +556,7 @@
       "beatIt": [
         "Fire Weakness on Ogerpon, Meganium and Hydrapple.",
         "Gust and KO Meganium (1 prize) to cut their damage in half.",
-        "Crustle walls its ex attackers and wins 66% here."
+        "Crustle walls its ex attackers and wins 69% here."
       ],
       "sample": {
         "player": "TrialbyCalmBat",
@@ -705,7 +705,7 @@
       "beatIt": [
         "Hand disruption shrinks its damage (Unfair Stamp, Judge, Team Rocket's tricks).",
         "Darkness hits Alakazam for double.",
-        "Crustle wins 78% here on Limitless."
+        "Crustle wins 71% here on Limitless."
       ],
       "sample": {
         "player": "larinuki",
@@ -806,7 +806,7 @@
       "short": "Zoroark",
       "energy": "Darkness",
       "limitless": "n-zoroark",
-      "summary": "N's Zoroark ex copies the attacks of benched N's Pokémon (Night Joker) and draws with Trade. Team Rocket's Watchtower shuts off Colorless Pokémon abilities.",
+      "summary": "N's Zoroark ex copies the attacks of benched N's Pokémon (Night Joker) and draws with Trade. Team Rocket's Watchtower shuts off Colorless Pokémon abilities. Won LAIC 2026–27.",
       "plan": [
         "N's Zorua into N's Zoroark ex (280 HP) on turn 2, then Trade (discard 1, draw 2) every turn.",
         "Night Joker uses N's Zekrom or N's Reshiram attacks for two Darkness Energy.",
@@ -821,15 +821,15 @@
         "Binding Mochi"
       ],
       "beatIt": [
-        "Grass hits Zoroark ex for double; Ogerpon decks win 73% here.",
+        "Grass hits Zoroark ex for double; Ogerpon decks win 74% here.",
         "280 HP and 2 prizes: you need three KOs, so line up OHKOs.",
-        "Crustle walls Zoroark ex and wins 71%."
+        "Crustle walls Zoroark ex and wins 69%."
       ],
       "sample": {
-        "player": "Alagawina",
-        "event": "Vault of Games #10 (1st of 161)",
-        "date": "2026-11-08",
-        "url": "https://play.limitlesstcg.com/tournament/6aea6ad30c463890f304ab8c/player/alagawina/decklist"
+        "player": "Vinícius Fernandez",
+        "event": "LAIC 2026–27, São Paulo (1st of 2,646)",
+        "date": "2026-11-20",
+        "url": "https://limitlesstcg.com/tournaments/574/decklists"
       },
       "confidence": "medium",
       "model": {
@@ -930,7 +930,7 @@
       "plan": [
         "Drilbur into Mega Excadrill ex, with a Beldum, Metang and Metagross line beside it and 16 Metal Energy.",
         "Maximum Drilling: 200, or 330 with 2 extra Energy.",
-        "Undermine (90, discard their top 2 cards) mills decks it can't damage. That is why it beats Crustle 79% of the time."
+        "Undermine (90, discard their top 2 cards) mills decks it can't damage. That is why it beats Crustle 74% of the time."
       ],
       "keyCards": [
         "Mega Excadrill ex",
@@ -942,7 +942,7 @@
       "beatIt": [
         "Fire Weakness.",
         "A 3-prize Mega: two KOs win the game.",
-        "Ogerpon decks win 71% here despite Grass Resistance."
+        "Ogerpon decks win 61% here despite Grass Resistance."
       ],
       "sample": {
         "player": "Yoyosmo224",
@@ -1080,7 +1080,7 @@
       ],
       "beatIt": [
         "Darkness hits Dhelmise and Banette for double.",
-        "Big ex attackers outrace it: Mega Rayquaza wins 66% and Talonflame Dusknoir about 72%.",
+        "Big ex attackers outrace it: Mega Rayquaza wins 70% and Talonflame Dusknoir 76%.",
         "Dhelmise itself has no Hide 'n' Sneak, so it can still be gusted and damaged normally."
       ],
       "sample": {
@@ -1221,13 +1221,13 @@
       "beatIt": [
         "Each Cursed Blast hands you a prize. Count those in your race.",
         "Fighting hits Kangaskhan for double; Lightning hits Talonflame for double.",
-        "N's Zoroark wins 74% and Dragapult Dudunsparce 80% on Limitless."
+        "N's Zoroark wins 70% and Dragapult Dudunsparce 73% on Limitless."
       ],
       "sample": {
-        "player": "Apothanasia",
-        "event": "SEASAC League Challenge #28 (1st of 72)",
-        "date": "2026-11-13",
-        "url": "https://play.limitlesstcg.com/tournament/6af6695fdcbca32da6c4ff7c/player/apothanasia/decklist"
+        "player": "Damian Fernandez Urroz",
+        "event": "LAIC 2026–27, São Paulo (2nd)",
+        "date": "2026-11-20",
+        "url": "https://labs.limitlesstcg.com/0081/player/1435/decklist"
       },
       "confidence": "medium",
       "model": {
@@ -1349,15 +1349,15 @@
         "Team Rocket's Petrel"
       ],
       "beatIt": [
-        "Bring non-ex attackers, or a way to win without damage: Mega Excadrill's Undermine mill wins 79% here.",
+        "Bring non-ex attackers, or a way to win without damage: Mega Excadrill's Undermine mill wins 74% here.",
         "Fire hits Crustle for double.",
         "Gust around it: Dwebble and Mega Kangaskhan ex are not protected."
       ],
       "sample": {
-        "player": "Leandro Espindola",
-        "event": "Special Event Buenos Aires (4th)",
-        "date": "2026-11-14",
-        "url": "https://limitlesstcg.com/decks/lists"
+        "player": "Marco Cifuentes Meta",
+        "event": "LAIC 2026–27, São Paulo (11th)",
+        "date": "2026-11-20",
+        "url": "https://limitlesstcg.com/tournaments/574/decklists"
       },
       "confidence": "low",
       "model": {
@@ -1456,13 +1456,13 @@
       ],
       "beatIt": [
         "Fire Weakness.",
-        "Dragapult farms its low-HP bench and wins 63% here."
+        "Dragapult farms its low-HP bench."
       ],
       "sample": {
-        "player": "Ciaran Farah",
-        "event": "Special Event Buenos Aires (2nd)",
-        "date": "2026-11-14",
-        "url": "https://limitlesstcg.com/decks/lists"
+        "player": "Murilo Mercadante",
+        "event": "LAIC 2026–27, São Paulo (5th)",
+        "date": "2026-11-20",
+        "url": "https://limitlesstcg.com/tournaments/574/decklists"
       },
       "confidence": "low",
       "model": {
@@ -1542,7 +1542,7 @@
       "short": "Dragapult D.",
       "energy": "Dragon",
       "limitless": "dragapult-dudunsparce",
-      "summary": "Dragapult ex with Dudunsparce for extra draw instead of hammers. The best win rate among popular decks online right now (55%).",
+      "summary": "Dragapult ex with Dudunsparce for extra draw instead of hammers. The best win rate among popular decks online right now (56%).",
       "plan": [
         "Same Phantom Dive plan as Dragapult, with more draw and fewer disruption cards."
       ],

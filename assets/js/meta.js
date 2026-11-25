@@ -81,6 +81,7 @@ function renderAll() {
   const fmt = F.formats.find((f) => f.id === state.format);
   document.getElementById('top-sub').textContent = `${fmt.name} (${fmt.code}). ${meta.headline}, captured ${fmtDate(meta.captured)}.`;
   renderTop(meta);
+  renderEvents(meta);
   renderSourceToggle(meta);
   renderHeat(meta);
   renderMethod(meta);
@@ -126,6 +127,31 @@ function profile(id, a) {
     h('div', h('p', a.summary), h('h3', { style: { margin: '10px 0 6px' } }, 'Key cards'), h('div.chips', a.keyCards.map((c) => h('span.chip-card', c)))),
     h('div', h('h3', { style: { marginBottom: '6px' } }, 'How it plays'), h('ul', a.plan.map((p) => h('li', p)))),
     h('div', h('h3', { style: { marginBottom: '6px' } }, 'How to beat it'), h('ul', a.beatIt.map((p) => h('li', p))), h('ul.small', { style: { marginTop: '10px' } }, links))
+  );
+}
+
+function renderEvents(meta) {
+  const section = document.getElementById('events');
+  const ev = (meta.events || [])[0];
+  section.hidden = !ev;
+  if (!ev) return;
+  document.getElementById('events-sub').textContent = `${ev.name}, ${fmtDay(ev.date)}. ${ev.players.toLocaleString()} players.`;
+  const top8 = ev.top.slice(0, 8);
+  const counts = {};
+  for (const [, , , id] of ev.top.slice(0, 16)) counts[id] = (counts[id] || 0) + 1;
+  const most = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
+  const name = (id) => (A[id] ? A[id].name : id);
+  const lead = `${name(top8[0][3])} won. ${name(most[0])} put ${most[1]} decks in the top 16.`;
+  document.getElementById('events-body').replaceChildren(
+    h('p', lead),
+    h(
+      'ol.decks-table',
+      { style: { listStyle: 'none', padding: 0, margin: 0 } },
+      top8.map(([place, player, country, id]) =>
+        h('li.list-line', { style: { padding: '10px 16px' } }, h('span', h('strong', `${place}. ${name(id)}`), h('span.detail', `${player} (${country})`)))
+      )
+    ),
+    h('p.small', { style: { marginTop: '8px' } }, h('a', { href: ev.decklists || ev.url, target: '_blank', rel: 'noopener' }, 'Top decklists on Limitless'))
   );
 }
 

@@ -14,6 +14,8 @@ const games = Number(process.argv[2] || 1500);
 const ids = meta.top.map((t) => t.id);
 const real = {};
 for (const [a, b, w, l, t] of meta.matrix.limitless) real[`${a}|${b}`] = { wr: w / (w + l + t), n: w + l + t };
+// Fill a missing cell from the other deck's side of the same matchup.
+for (const [a, b, w, l, t] of meta.matrix.limitless) if (!real[`${b}|${a}`]) real[`${b}|${a}`] = { wr: l / (w + l + t), n: w + l + t };
 
 const pts = [];
 const rows = [];
