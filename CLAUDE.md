@@ -26,3 +26,11 @@ Don't add Ian's decks from the claude.ai project docs unless he asks.
 - When a new set becomes legal: add a format to `data/formats.json`, add `data/meta/<format>.json` with the new top 10 and the Limitless matchup rows, add any new archetypes to `data/archetypes.json`, then run `node tools/calibrate.mjs`.
 - Keep `setChanges` in `data/formats.json` current; mark unconfirmed dates with `"confirmed": false`.
 - Matrix rows are `[rowDeck, colDeck, wins, losses, ties]` (Trainer Hill rows add a sixth field: `"meta"` or `"deck"` for which page they came from).
+
+## Guide pages
+
+`guide.html?id=<archetype>` builds its matchup notes from `data/archetypes.json` with the rules in `assets/js/insights.js`. When you add or edit an archetype, fill the fields those rules read:
+- attackers: `hp`, `prizes`, `type`, `weakness`, `resist`, `ex`, `energy` (usually attached), `dmg`, `spread` + `spreadName`, `counters`, `immuneEx` + `wallLockedBy`, `grantWeakness`.
+- model: `locks`, `reliesOn`, `disrupt`, `snipe`, `bench` (with `p`, `pIf`, `line`, `effectImmune`), `setupFragility`, `energyFragility`, `handFragility`.
+- `engine`: plain words for what a lock shuts off (e.g. `{ "evolved": "Drakloak's Recon Directive" }`).
+Then read the generated notes for every pair (node one-liner calling `matchupNotes`) and fix any profile number that produces a wrong claim.

@@ -17,6 +17,7 @@
       <a class="wordmark" href="index.html"><span class="chip" aria-hidden="true"></span>Ian Plays TCG</a>
       <nav class="nav" aria-label="Main">
         <a href="index.html">Meta</a>
+        <a href="guides.html">Guides</a>
         <a href="decks.html">My decks</a>
       </nav>
     </div>
@@ -54,13 +55,15 @@
     <section class="section" id="matchups" aria-labelledby="mu-title">
       <div class="section-head">
         <div>
-          <h2 id="mu-title">Matchups</h2>
-          <p class="small">Each cell is the row deck's win rate against the column deck. Tap a deck above for how it plays.</p>
+          <h2 id="mu-title">Who beats who</h2>
+          <p class="small">Real match results between the top 10. Tap a deck to see its wins and losses.</p>
         </div>
-        <div class="toggle" role="group" aria-label="Data source" id="source-toggle"></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <div class="toggle" role="group" aria-label="View" id="view-toggle"></div>
+          <div class="toggle" role="group" aria-label="Data source" id="source-toggle"></div>
+        </div>
       </div>
       <div id="heat"></div>
-      <div class="legend" style="margin-top:10px"><span>Row loses</span><span class="swatch" aria-hidden="true"></span><span>Row wins</span></div>
     </section>
 
     <section class="section method" id="method" aria-labelledby="method-title">

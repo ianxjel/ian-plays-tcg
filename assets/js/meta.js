@@ -1,9 +1,9 @@
-import { loadJSON, h, pct, parseDate, today, daysBetween, fmtDate, fmtDay, formatState, winRate, heatColor, heatText, markNav, showError } from './common.js';
+import { loadJSON, h, pct, parseDate, today, daysBetween, fmtDate, fmtDay, formatState, winRate, heatColor, heatText, markNav, showError, matrixLookup, verdict } from './common.js';
 
 markNav();
 
 const params = new URLSearchParams(location.search);
-const state = { format: null, source: params.get('source') || 'limitless' };
+const state = { format: null, source: params.get('source') || 'limitless', view: params.get('view') === 'list' ? 'list' : 'grid', focus: params.get('focus') };
 let F, A, CAL;
 const metas = {};
 
@@ -67,6 +67,15 @@ function renderFormatToggle() {
   );
 }
 
+function renderViewToggle() {
+  const box = document.getElementById('view-toggle');
+  const views = [
+    ['grid', 'Grid'],
+    ['list', 'List'],
+  ];
+  box.replaceChildren(...views.map(([k, label]) => h('button', { type: 'button', 'aria-pressed': String(state.view === k), onclick: () => ((state.view = k), renderAll()) }, label)));
+}
+
 function renderSourceToggle(meta) {
   const box = document.getElementById('source-toggle');
   const sources = Object.keys(meta.matrix || {}).filter((k) => meta.matrix[k].length);
@@ -83,6 +92,7 @@ function renderAll() {
   renderTop(meta);
   renderEvents(meta);
   renderSourceToggle(meta);
+  renderViewToggle();
   renderHeat(meta);
   renderMethod(meta);
 }
@@ -95,7 +105,8 @@ function renderTop(meta) {
     h('span', 'Deck'),
     h('span.share-bar', 'Share of the field'),
     h('span.num', 'Limitless'),
-    h('span.num', 'Trainer Hill')
+    h('span.num', 'Trainer Hill'),
+    h('span.num', 'How to beat')
   );
   const rows = meta.top.map((t, i) => {
     const a = A[t.id] || { name: t.label || t.id };
@@ -107,7 +118,8 @@ function renderTop(meta) {
       h('span.deck-name', a.name, h('small', sub)),
       h('span.share-bar', h('div.bar', h('span', { style: { width: `${(t.limitless.share / maxShare) * 100}%` } }))),
       h('span.num', `${t.limitless.share.toFixed(1)}%`),
-      h('span.num', t.trainerHill ? `${t.trainerHill.share.toFixed(1)}%` : '—')
+      h('span.num', t.trainerHill ? `${t.trainerHill.share.toFixed(1)}%` : '—'),
+      h('a.guide-link', { href: `guide.html?id=${t.id}`, 'aria-label': `Guide: how to beat ${a.name}` }, 'Guide')
     );
     return h('details.deck-row', summary, profile(t.id, a));
   });
@@ -116,7 +128,7 @@ function renderTop(meta) {
 
 function profile(id, a) {
   if (!a.summary) return h('div.profile', h('p.small', 'No profile for this deck yet.'));
-  const links = [];
+  const links = [h('li', h('a', { href: `guide.html?id=${id}` }, `Full guide: how every top deck beats ${a.name}`))];
   if (a.sample) links.push(h('li', h('a', { href: a.sample.url, target: '_blank', rel: 'noopener' }, `Sample list: ${a.sample.player}`), `, ${a.sample.event}, ${fmtDate(a.sample.date)}`));
   if (a.limitless) {
     links.push(h('li', h('a', { href: `https://play.limitlesstcg.com/decks/${a.limitless}?format=standard`, target: '_blank', rel: 'noopener' }, 'Results on Limitless')));
@@ -155,54 +167,130 @@ function renderEvents(meta) {
   );
 }
 
-function matrixLookup(meta, source) {
-  const recs = meta.matrix?.[source] || [];
-  const direct = new Map();
-  for (const r of recs) {
-    const key = `${r[0]}|${r[1]}`;
-    if (!direct.has(key) || r[5] === 'meta') direct.set(key, r);
-  }
-  return (a, b) => {
-    const d = direct.get(`${a}|${b}`);
-    if (d) return { w: d[2], l: d[3], t: d[4], from: d[5] || 'row' };
-    const inv = direct.get(`${b}|${a}`);
-    if (inv) return { w: inv[3], l: inv[2], t: inv[4], from: 'inverse' };
-    return null;
-  };
-}
-
 function renderHeat(meta) {
   const box = document.getElementById('heat');
-  if (!meta.matrix || !Object.keys(meta.matrix).length) {
-    box.replaceChildren(h('p.note', 'Matchup data is tracked for the Delta Reign format. Switch to it above to see the grid.'));
+  const hasData = meta.matrix && Object.values(meta.matrix).some((r) => r.length);
+  document.getElementById('view-toggle').hidden = !hasData;
+  document.getElementById('source-toggle').hidden = !hasData;
+  if (!hasData) {
+    box.replaceChildren(h('p.note', 'Matchup data is tracked for the Delta Reign format. Switch to it above to see who beats who.'));
     return;
   }
   const ids = meta.top.map((t) => t.id);
+  const share = Object.fromEntries(meta.top.map((t) => [t.id, t.limitless.share]));
   const get = matrixLookup(meta, state.source);
+  const wrOf = (a, b) => {
+    const r = get(a, b);
+    return r ? { wr: winRate(r.w, r.l, r.t, state.source), n: r.w + r.l + r.t, r } : null;
+  };
   const name = (id) => (A[id] ? A[id].short : id);
-  const thead = h('thead', h('tr', h('th', ''), ids.map((id) => h('th', { scope: 'col' }, name(id)))));
+  // Share-weighted win rate against the rest of the top 10.
+  const overall = (a) => {
+    let num = 0;
+    let den = 0;
+    for (const b of ids) {
+      if (a === b) continue;
+      const x = wrOf(a, b);
+      if (!x) continue;
+      num += x.wr * share[b];
+      den += share[b];
+    }
+    return den ? num / den : null;
+  };
+  if (state.view === 'list') return renderList(box, ids, wrOf, overall);
+
+  const focus = state.focus && ids.includes(state.focus) ? state.focus : null;
+  const thead = h(
+    'thead',
+    h('tr', h('th.corner', { scope: 'col' }, 'Deck ↓', h('br'), 'against →'), ids.map((id) => h('th', { scope: 'col', class: focus === id ? 'hl' : null }, name(id))), h('th.overall', { scope: 'col' }, 'Vs top 10'))
+  );
   const tbody = h(
     'tbody',
     ids.map((a) =>
       h(
         'tr',
-        h('th', { scope: 'row' }, name(a)),
+        h(
+          'th',
+          { scope: 'row', class: focus === a ? 'hl' : null },
+          h('button', { type: 'button', 'aria-pressed': String(focus === a), onclick: () => ((state.focus = focus === a ? null : a), renderHeat(meta)) }, name(a))
+        ),
         ids.map((b) => {
-          const rec = get(a, b);
-          if (a === b) {
-            const wr = rec ? winRate(rec.w, rec.l, rec.t, state.source) : null;
-            return h('td.self', { title: `${A[a]?.name} mirror${rec ? `: ${rec.w}-${rec.l}-${rec.t}` : ''}` }, wr !== null ? Math.round(wr * 100) : '—');
-          }
-          if (!rec) return h('td.na', { title: 'No data captured' }, '·');
-          const wr = winRate(rec.w, rec.l, rec.t, state.source);
-          const n = rec.w + rec.l + rec.t;
-          const tip = `${A[a]?.name} vs ${A[b]?.name}: ${pct(wr, 1)} over ${n} games (${rec.w}-${rec.l}-${rec.t})${rec.from === 'inverse' ? ', from the other deck’s side' : ''}`;
-          return h('td', { title: tip, 'aria-label': tip, style: { background: heatColor(wr), color: heatText(wr), opacity: n < 25 ? 0.6 : 1 } }, Math.round(wr * 100));
-        })
+          const hl = focus && (a === focus || b === focus) ? 'hl' : null;
+          const x = wrOf(a, b);
+          if (a === b) return h('td.self', { class: `self ${hl || ''}`, title: `${A[a]?.name} mirror` }, x ? Math.round(x.wr * 100) : '—');
+          if (!x) return h('td.na', { class: `na ${hl || ''}`, title: 'No data captured' }, '·');
+          const v = verdict(x.wr);
+          const tip = `${A[a]?.name} vs ${A[b]?.name}: ${A[a]?.short} wins ${pct(x.wr, 1)} of ${x.n} games (${x.r.w}-${x.r.l}-${x.r.t})${x.r.from === 'inverse' ? ', from the other deck’s side' : ''}`;
+          return h(
+            'td',
+            { class: hl, title: tip, 'aria-label': tip, style: { background: heatColor(x.wr), color: heatText(x.wr), opacity: x.n < 25 && !focus ? 0.6 : null } },
+            v.mark ? h('span.mk', { 'aria-hidden': 'true' }, v.mark) : null,
+            Math.round(x.wr * 100)
+          );
+        }),
+        (() => {
+          const o = overall(a);
+          return h('td.overall', { class: `overall ${focus === a ? 'hl' : ''}`, style: { background: heatColor(o), color: heatText(o) }, title: `${A[a]?.name}: ${pct(o, 1)} against the rest of the top 10, weighted by play rate` }, o === null ? '—' : Math.round(o * 100));
+        })()
       )
     )
   );
-  box.replaceChildren(h('div.grid-scroll', h('table.heat', thead, tbody)), h('p.small', { style: { marginTop: '8px' } }, 'Faded cells have fewer than 25 games. Hover or long-press a cell for the record.'));
+  const parts = [
+    h('p.heat-caption', 'Read across a row: the deck on the left against each deck on top. ', h('b', '▲'), ' the row deck is favored (55% or more), ', h('b', '▼'), ' it is unfavored (45% or less). Tap a deck name to focus on it.'),
+    h('div.grid-scroll', h('table', { class: `heat${focus ? ' focused' : ''}` }, thead, tbody)),
+    h('div.legend', { style: { marginTop: '10px' } }, h('span', 'Row deck loses'), h('span.swatch', { 'aria-hidden': 'true' }), h('span', 'Row deck wins')),
+  ];
+  if (focus) parts.push(focusNote(focus, ids, wrOf, overall));
+  else parts.push(h('p.small', { style: { marginTop: '8px' } }, 'Faded cells have fewer than 25 games. Hover or long-press a cell for the record.'));
+  box.replaceChildren(...parts);
+}
+
+function sides(a, ids, wrOf) {
+  const out = { beats: [], loses: [], even: [] };
+  for (const b of ids) {
+    if (a === b) continue;
+    const x = wrOf(a, b);
+    if (!x) continue;
+    const v = verdict(x.wr);
+    (v.key === 'fav' ? out.beats : v.key === 'unfav' ? out.loses : out.even).push({ id: b, wr: x.wr, n: x.n });
+  }
+  out.beats.sort((p, q) => q.wr - p.wr);
+  out.loses.sort((p, q) => p.wr - q.wr);
+  out.even.sort((p, q) => q.wr - p.wr);
+  return out;
+}
+
+function focusNote(a, ids, wrOf, overall) {
+  const s = sides(a, ids, wrOf);
+  const fmtList = (arr) => arr.map((x) => `${A[x.id].short} (${pct(x.wr)})`).join(', ');
+  return h(
+    'div.focus-note',
+    h('p', h('strong', A[a].name), ` wins ${pct(overall(a))} against the rest of the top 10.`),
+    s.beats.length ? h('p', `Beats ${fmtList(s.beats)}.`) : h('p', 'No clearly favored matchups.'),
+    s.loses.length ? h('p', `Loses to ${fmtList(s.loses)}.`) : h('p', 'No clearly bad matchups.'),
+    s.even.length ? h('p.small', `Close to even: ${fmtList(s.even)}.`) : null,
+    h('p.small', h('a', { href: `guide.html?id=${a}` }, `How to beat ${A[a].name}`))
+  );
+}
+
+function renderList(box, ids, wrOf, overall) {
+  const chip = (x, kind) => h(`span.mchip.${kind}`, { title: `${x.n} games` }, `${A[x.id].short} ${Math.round(x.wr * 100)}`);
+  const rows = ids
+    .map((a) => ({ a, o: overall(a), s: sides(a, ids, wrOf) }))
+    .sort((p, q) => (q.o ?? 0) - (p.o ?? 0))
+    .map(({ a, o, s }) =>
+      h(
+        'div.wbw-row',
+        h('h3', h('a', { href: `guide.html?id=${a}` }, A[a].name), h('small', `${pct(o)} vs the top 10`)),
+        h(
+          'div',
+          h('div.wbw-line', h('span.lbl', 'Beats'), s.beats.length ? s.beats.map((x) => chip(x, 'fav')) : h('span.small', 'nobody clearly')),
+          h('div.wbw-line', { style: { marginTop: '6px' } }, h('span.lbl', 'Loses to'), s.loses.length ? s.loses.map((x) => chip(x, 'unfav')) : h('span.small', 'nobody clearly')),
+          s.even.length ? h('div.wbw-line', { style: { marginTop: '6px' } }, h('span.lbl', 'Even'), s.even.map((x) => chip(x, 'even'))) : null
+        )
+      )
+    );
+  box.replaceChildren(h('p.heat-caption', 'Sorted by win rate against the rest of the top 10. Numbers are each deck\'s win % in that matchup; 55%+ counts as a win, 45% or less as a loss.'), h('div.wbw', rows));
 }
 
 function renderMethod(meta) {

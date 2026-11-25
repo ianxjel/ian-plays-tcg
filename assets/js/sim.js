@@ -154,7 +154,9 @@ function refreshGrants(side) {
 function dmgTo(def, target, roll, activeSpot, attSide) {
   if (roll <= 0) return 0;
   if (def.counters) return target.effectImmune ? 0 : roll;
-  if (target.immuneEx && def.ex) return 0;
+  // A wall that is an Ability (Crustle's Mysterious Rock Inn) stops working under the matching lock.
+  const wallOff = target.def && target.def.wallLockedBy && attSide && attSide.wallOff;
+  if (target.immuneEx && def.ex && !wallOff) return 0;
   let d = roll;
   // Attacks that scale with the defender's Energy (e.g. Teal Mask Ogerpon ex's Myriad Leaf Shower).
   if (def.dmg && def.dmg.perOppEnergy && target.def && target.def.energy) d += def.dmg.perOppEnergy * target.def.energy;
@@ -276,6 +278,7 @@ function takeTurn(side, opp, rng) {
 
   if (def) {
     side.stats.attacks++;
+    side.wallOff = Object.entries(side.m.locks || {}).some(([, p]) => rng() < p);
     const roll = rollDamage(def, side.sinceReady, rng);
     const ping = side.online && side.m.pings && rng() < side.m.pings.p ? side.m.pings.dmg : 0;
     const gustOk = side.online && side.gusts > 0 && rng() < (side.m.gust ?? 0.5);

@@ -132,6 +132,9 @@
         },
         "energyFragility": 0.9,
         "handFragility": 0.4
+      },
+      "engine": {
+        "colorless": "Ruler's Roar, Run Errand and Talonflame's Excited Dive"
       }
     },
     "dragapult": {
@@ -185,7 +188,8 @@
               "base": 200
             },
             "spread": 60,
-            "energy": 2
+            "energy": 2,
+            "spreadName": "Phantom Dive"
           }
         ],
         "bench": [
@@ -256,6 +260,9 @@
         "benchPrep": 0.55,
         "reload": 0.75,
         "setupFragility": 0.6
+      },
+      "engine": {
+        "evolved": "Drakloak's Recon Directive and Dudunsparce's draw"
       }
     },
     "basic-box": {
@@ -397,6 +404,9 @@
           "colorless": 0.15
         },
         "energyFragility": 0.55
+      },
+      "engine": {
+        "colorless": "Mega Kangaskhan ex's Run Errand"
       }
     },
     "slowking": {
@@ -681,6 +691,9 @@
         },
         "benchPrep": 0.65,
         "setupFragility": 0.35
+      },
+      "engine": {
+        "evolved": "Meganium's Wild Growth and Hydrapple ex's Ripening Charge"
       }
     },
     "alakazam-dudunsparce": {
@@ -799,6 +812,9 @@
         "handFragility": 0.5,
         "benchPrep": 0.6,
         "setupFragility": 0.5
+      },
+      "engine": {
+        "evolved": "Psychic Draw and Dudunsparce's draw, which keep the hand big"
       }
     },
     "n-zoroark": {
@@ -919,6 +935,9 @@
           "evolved": 0.3
         },
         "setupFragility": 0.35
+      },
+      "engine": {
+        "evolved": "Zoroark ex's Trade"
       }
     },
     "mega-excadrill": {
@@ -1057,6 +1076,9 @@
           "evolved": 0.45
         },
         "setupFragility": 0.45
+      },
+      "engine": {
+        "evolved": "its Beldum line's support"
       }
     },
     "dhelmise": {
@@ -1328,6 +1350,10 @@
           "evolved": 0.25
         },
         "setupFragility": 0.2
+      },
+      "engine": {
+        "evolved": "Dusknoir's Cursed Blast",
+        "colorless": "Run Errand and Excited Dive"
       }
     },
     "crustle": {
@@ -1351,7 +1377,8 @@
       "beatIt": [
         "Bring non-ex attackers, or a way to win without damage: Mega Excadrill's Undermine mill wins 74% here.",
         "Fire hits Crustle for double.",
-        "Gust around it: Dwebble and Mega Kangaskhan ex are not protected."
+        "Gust around it: Dwebble and Mega Kangaskhan ex are not protected.",
+        "Legendary Pyroduct turns off Mysterious Rock Inn (it's an Ability on an Evolution Pokémon). Mega Rayquaza decks run Pyroduct and beat Crustle 64% of the time."
       ],
       "sample": {
         "player": "Marco Cifuentes Meta",
@@ -1379,7 +1406,8 @@
             "dmg": {
               "base": 120
             },
-            "energy": 3
+            "energy": 3,
+            "wallLockedBy": "evolved"
           },
           {
             "name": "Mega Kangaskhan ex",
@@ -1411,7 +1439,8 @@
             "prizes": 1,
             "p": 0.5,
             "immuneEx": true,
-            "weakness": "Fire"
+            "weakness": "Fire",
+            "wallLockedBy": "evolved"
           }
         ],
         "speed": {
@@ -1574,7 +1603,8 @@
               "base": 200
             },
             "spread": 60,
-            "energy": 2
+            "energy": 2,
+            "spreadName": "Phantom Dive"
           }
         ],
         "bench": [
@@ -1633,6 +1663,9 @@
         "benchPrep": 0.55,
         "reload": 0.75,
         "setupFragility": 0.6
+      },
+      "engine": {
+        "evolved": "Drakloak's Recon Directive and Dudunsparce's draw"
       }
     },
     "mega-lopunny": {
