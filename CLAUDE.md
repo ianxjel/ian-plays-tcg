@@ -24,12 +24,13 @@ Don't add Ian's decks from the claude.ai project docs unless he asks.
 ## Refreshing the meta
 
 - When a new set becomes legal: add a format to `data/formats.json`, add `data/meta/<format>.json` with the new top 10 and the Limitless matchup rows, add any new archetypes to `data/archetypes.json`, then run `node tools/calibrate.mjs`.
+- Ranks 11 to 20 go in the meta file's `next` list (same row shape as `top`, with `nextCaptured` for their capture date). Add Limitless rows for each of them against all 20 decks; challengers on every guide page stay the top 10, and `tools/calibrate.mjs` reads only `top`.
 - Keep `setChanges` in `data/formats.json` current; mark unconfirmed dates with `"confirmed": false`.
 - Matrix rows are `[rowDeck, colDeck, wins, losses, ties]` (Trainer Hill rows add a sixth field: `"meta"` or `"deck"` for which page they came from).
 
 ## Guide pages
 
-Each top-10 deck has a written guide in `data/guides/<id>.md` (format in README.md). When the top 10 changes, write a guide for each new deck from its best recent list on Limitless: fetch the list, then the card text for every Pokémon and every Trainer you describe (`limitlesstcg.com/cards/<SET>/<number>` fetches once the URL has appeared in a search or list page). Three playthroughs per guide, each legal turn by turn, with the arithmetic checked. Update `data/streams.json` from each deck's Limitless page ("Latest stream matches"). Run `node tools/check.mjs`, then read the rendered page.
+Each top-20 deck (`top` plus `next`) has a written guide in `data/guides/<id>.md` (format in README.md). When the top 20 changes, write a guide for each new deck from its best recent list on Limitless: fetch the list, then the card text for every Pokémon and every Trainer you describe (`limitlesstcg.com/cards/<SET>/<number>` fetches once the URL has appeared in a search or list page). Three playthroughs per guide, each legal turn by turn, with the arithmetic checked. Update `data/streams.json` from each deck's Limitless page ("Latest stream matches"). Run `node tools/check.mjs`, then read the rendered page.
 
 `guide.html?id=<archetype>` builds its matchup notes from `data/archetypes.json` with the rules in `assets/js/insights.js`. When you add or edit an archetype, fill the fields those rules read:
 - attackers: `hp`, `prizes`, `type`, `weakness`, `resist`, `ex`, `energy` (usually attached), `dmg`, `spread` + `spreadName`, `counters`, `immuneEx` + `wallLockedBy`, `grantWeakness`.

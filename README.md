@@ -2,8 +2,8 @@
 
 A small static site for my Pokémon TCG decks:
 
-- **Meta** (`index.html`): the top 10 decks of the current Standard format, a countdown to the next set change, the latest major event, and a "who beats who" chart (grid or list) from Limitless and Trainer Hill.
-- **Guides** (`guides.html`, `guide.html?id=…`): one long page per top-10 deck, in numbered chapters. First how to play it: the reference list, every card's job, the first turns, the middle game, closing, key decisions, three turn-by-turn playthroughs and a matchup cheat sheet. Then its streamed matches from Limitless, with links that open at the match. Then how every other top deck beats it: real win rates, a plan per matchup, streamed games for that pair, and a quick simulation.
+- **Meta** (`index.html`): the top 10 decks of the current Standard format (ranks 11 to 20 fold out below them), a countdown to the next set change, the latest major event, and a "who beats who" chart (grid or list) from Limitless and Trainer Hill.
+- **Guides** (`guides.html`, `guide.html?id=…`): one long page per top-20 deck, in numbered chapters. First how to play it: the reference list, every card's job, the first turns, the middle game, closing, key decisions, three turn-by-turn playthroughs and a matchup cheat sheet. Then its streamed matches from Limitless, with links that open at the match. Then how every top-10 deck beats it: real win rates, a plan per matchup, streamed games for that pair, and a quick simulation.
 - **My decks** (`decks.html`): decks I've built or made up, with simplified lists.
 - **Deck page** (`deck.html?id=…`): setup odds, and every matchup against the top 10 with dropdowns for setup, turn plan, why simulated games were won or lost, and gameplay suggestions.
 
@@ -51,14 +51,14 @@ Add results to the deck's `record` list and the deck page shows them in the "You
 ## Update the meta
 
 - `data/formats.json`: formats and set changes (release and tournament-legal dates). The countdown and format rail read this.
-- `data/meta/<format>.json`: top decks with shares from Limitless and Trainer Hill, and the matchup matrices.
+- `data/meta/<format>.json`: the top 10 (`top`) and ranks 11 to 20 (`next`, with its own `nextCaptured` date) with shares from Limitless and Trainer Hill, and the matchup matrices.
 - `data/archetypes.json`: one profile per meta deck: how it plays, how to beat it, a sample list, and the simulator model. The guide pages' matchup notes are worked out from these profiles by `assets/js/insights.js`, so getting HP, damage, Weakness, prizes and flags right there is what keeps the guides right.
 
 After changing meta data or archetype models, run `node tools/calibrate.mjs` to re-check the simulator against real results. It rewrites `data/sim-calibration.json`.
 
 ## Write or update a guide
 
-Each top-10 deck has a Markdown file, `data/guides/<archetype id>.md`. The page turns every `## ` heading into a numbered chapter. Start the file with:
+Each top-20 deck (the meta file's `top` and `next` lists) has a Markdown file, `data/guides/<archetype id>.md`. The page turns every `## ` heading into a numbered chapter. Start the file with:
 
 ```
 ---
@@ -76,7 +76,7 @@ Everything else is plain Markdown (paragraphs, `-` and `1.` lists, `>` callouts,
 
 ## Streamed matches
 
-`data/streams.json` lists matches from the "Latest stream matches" table on each deck's Limitless page (`https://limitlesstcg.com/decks/<limitlessId>`; the ids are in `data/archetypes.json`). Each match has the event, round, both players with their archetype ids (or `null` and a `label` for decks outside the top 10), the score from player one's side, and the video link with its timestamp. When Limitless's own link is broken, leave `video` as `null`, put the timestamp in seconds in `t`, and give the event a `page` (its Limitless stream page) so the site links there instead.
+`data/streams.json` lists matches from the "Latest stream matches" table on each deck's Limitless page (`https://limitlesstcg.com/decks/<limitlessId>`; the ids are in `data/archetypes.json`). Each match has the event, round, both players with their archetype ids (or `null` and a `label` for decks outside the top 20), the score from player one's side, and the video link with its timestamp. When Limitless's own link is broken, leave `video` as `null`, put the timestamp in seconds in `t`, and give the event a `page` (its Limitless stream page) so the site links there instead.
 
 ## How the simulator works
 

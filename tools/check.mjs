@@ -12,7 +12,7 @@ const A = read('data/archetypes.json').archetypes;
 
 for (const f of F.formats) {
   const m = read(f.data);
-  for (const t of m.top) if (!A[t.id]) problems.push(`${f.data}: unknown archetype "${t.id}"`);
+  for (const t of [...m.top, ...(m.next || [])]) if (!A[t.id]) problems.push(`${f.data}: unknown archetype "${t.id}"`);
   for (const [src, recs] of Object.entries(m.matrix || {}))
     for (const r of recs) for (const id of [r[0], r[1]]) if (!A[id]) problems.push(`${f.data} ${src}: unknown archetype "${id}"`);
 }
@@ -37,11 +37,14 @@ for (const f of files) {
 }
 for (const id of index) if (!files.includes(`${id}.json`)) problems.push(`data/decks/index.json lists "${id}" but the file is missing`);
 
-// Deck guides: every top-10 deck of the live format needs one, with a 60-card list and playthroughs.
+// Deck guides: every top-20 deck of the live format (top plus next) needs one, with a 60-card list and playthroughs.
 const REQUIRED = ['At a glance', 'The list', 'Card by card', 'Playthroughs', 'Matchup cheat sheet'];
 const guides = readdirSync(new URL('data/guides/', root)).filter((f) => f.endsWith('.md'));
 const live = formatState(F.formats).live;
-for (const t of read(live.data).top) if (!guides.includes(`${t.id}.md`)) problems.push(`data/guides/${t.id}.md: missing (it is a top-10 deck in ${live.id})`);
+{
+  const lm = read(live.data);
+  for (const t of [...lm.top, ...(lm.next || [])]) if (!guides.includes(`${t.id}.md`)) problems.push(`data/guides/${t.id}.md: missing (it is a top-20 deck in ${live.id})`);
+}
 for (const f of guides) {
   const where = `data/guides/${f}`;
   const id = f.replace(/\.md$/, '');

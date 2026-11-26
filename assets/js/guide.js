@@ -33,8 +33,11 @@ async function main() {
   const guide = text ? splitChapters(text) : null;
   document.title = `${X.name} guide — Ian Plays TCG`;
 
-  const rank = META.top.findIndex((t) => t.id === xid);
-  const row = META.top[rank] || (META.alsoNotable || []).find((t) => t.id === xid);
+  // Ranks 1–10 come from META.top, 11–20 from META.next (captured on its own date).
+  const inTop = META.top.findIndex((t) => t.id === xid);
+  const inNext = (META.next || []).findIndex((t) => t.id === xid);
+  const rank = inTop >= 0 ? inTop : inNext >= 0 ? META.top.length + inNext : -1;
+  const row = inTop >= 0 ? META.top[inTop] : inNext >= 0 ? META.next[inNext] : null;
   const lim = matrixLookup(META, 'limitless');
   const th = matrixLookup(META, 'trainerHill');
   const challengers = META.top
@@ -48,7 +51,7 @@ async function main() {
     .sort((p, q) => (q.real?.wr ?? -1) - (p.real?.wr ?? -1));
 
   const statLine = row
-    ? `${rank >= 0 ? `#${rank + 1} in the ${fmt.name}` : `Outside the top 10 in the ${fmt.name}`}: ${row.limitless.share.toFixed(1)}% of the field online${row.limitless.w !== undefined ? `, ${pct(winRate(row.limitless.w, row.limitless.l, row.limitless.t), 1)} win rate` : ''}.`
+    ? `#${rank + 1} in the ${fmt.name}: ${row.limitless.share.toFixed(1)}% of the field online${row.limitless.w !== undefined ? `, ${pct(winRate(row.limitless.w, row.limitless.l, row.limitless.t), 1)} win rate` : ''}${inTop < 0 && META.nextCaptured ? ` (Limitless, ${fmtDate(META.nextCaptured)})` : ''}.`
     : fmt.name;
 
   const mine = STREAMS.matches.filter((m) => m.p1.deck === xid || m.p2.deck === xid);
@@ -261,7 +264,8 @@ function matchupCard(c) {
     ),
     h('details.sub', { open: true }, h('summary', 'What to watch out for'), notes.dangers.length ? h('ul', notes.dangers.map((x) => h('li', x))) : h('p.small', 'Nothing in their list lines up especially well against you.')),
     h('details.sub', { open: true }, h('summary', 'Game plan'), notes.plan.length ? h('ol', notes.plan.map((x) => h('li', x))) : h('p.small', 'Trade evenly and win on gusts.')),
-    games.length ? h('details.sub', h('summary', `Streamed games (${games.length})`), h('ul.sm-list', games.map((m) => matchRow(m, c.id)))) : null,
+    // Native append() would print a null as the text "null", so use an empty string.
+    games.length ? h('details.sub', h('summary', `Streamed games (${games.length})`), h('ul.sm-list', games.map((m) => matchRow(m, c.id)))) : '',
     simDetails,
     h(
       'p.small',
@@ -287,7 +291,7 @@ function matchupCard(c) {
       simBox.replaceChildren(
         h('p', `${c.a.short} won ${pct(cal(r.winRate))} of 1,500 simulated games (going first ${pct(cal(r.firstWinRate))}, second ${pct(cal(r.secondWinRate))}).`),
         h('div.two-col', h('div', h('h3', { style: { marginBottom: '6px' } }, `When ${c.a.short} won`), fl(r.winFactors, 'win')), h('div', h('h3', { style: { marginBottom: '6px' } }, `When ${X.short} won`), fl(r.lossFactors, 'loss'))),
-        r.prizeMaps.length ? h('div.maps', { style: { marginTop: '10px' } }, r.prizeMaps.slice(0, 2).map((m) => h('div.row', prizeMap(m.key), h('span.small', `${pct(m.share)} of ${c.a.short} wins`)))) : null
+        r.prizeMaps.length ? h('div.maps', { style: { marginTop: '10px' } }, r.prizeMaps.slice(0, 2).map((m) => h('div.row', prizeMap(m.key), h('span.small', `${pct(m.share)} of ${c.a.short} wins`)))) : ''
       );
     }, 20);
   };
