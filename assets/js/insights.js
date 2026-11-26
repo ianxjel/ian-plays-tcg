@@ -91,7 +91,16 @@ export function matchupNotes(you, them) {
           edges.push(
             `${a.name} (${about(a)}${h.d}) can one-hit KO ${t.name} (${t.hp} HP) once it already has ${spreadPre ? `${spreadPre} damage from the last ${a.spreadName || 'spread attack'}` : 'damage on it'}${ym.pings ? ` plus ${ym.pings.dmg} moved by Munkidori` : ''}.`
           );
-        else plan.push(`${t.name} has ${t.hp} HP, so your ${a.name} (${about(a)}${h.d} a hit) needs two attacks. Finish it before it can heal or retreat.`);
+        else {
+          // How many hits it really takes, so a 150-damage attacker into 340 HP isn't called a two-hit KO.
+          const n = h.d > 0 ? Math.ceil(t.hp / h.d) : Infinity;
+          const word = { 2: 'two', 3: 'three', 4: 'four' }[n];
+          plan.push(
+            word
+              ? `${t.name} has ${t.hp} HP, so your ${a.name} (${about(a)}${h.d} a hit) needs ${word} attacks. Finish it before it can heal or retreat.`
+              : `${t.name} has ${t.hp} HP and your ${a.name} does ${about(a)}${h.d} a hit: win this one with other damage, not trades.`
+          );
+        }
       }
     }
   }
@@ -111,9 +120,10 @@ export function matchupNotes(you, them) {
   if (xMain.resist && xMain.resist === yMain.type && !yMain.counters) dangers.push(`${xMain.name} resists ${yMain.type} (−30 damage).`);
 
   // Attacks that scale with the defender's Energy (Teal Mask Ogerpon ex's Myriad Leaf Shower).
-  for (const a of ym.attackers) if (a.dmg?.perOppEnergy && (xMain.energy || 0) >= 3)
+  // Skipped when the defender walls Pokémon ex attacks (Crustle): the bonus would never land.
+  for (const a of ym.attackers) if (a.dmg?.perOppEnergy && (xMain.energy || 0) >= 3 && !(xMain.immuneEx && a.ex))
     edges.push(`${a.name}'s attack adds ${a.dmg.perOppEnergy} for each Energy on their Active, and ${xMain.name} usually carries ${xMain.energy} (+${a.dmg.perOppEnergy * xMain.energy}).`);
-  for (const t of xm.attackers) if (t.dmg?.perOppEnergy && (yMain.energy || 0) >= 3)
+  for (const t of xm.attackers) if (t.dmg?.perOppEnergy && (yMain.energy || 0) >= 3 && !(yMain.immuneEx && t.ex))
     dangers.push(`Their ${t.name} adds ${t.dmg.perOppEnergy} damage for each Energy on your Active; your ${yMain.name} usually carries ${yMain.energy} (+${t.dmg.perOppEnergy * yMain.energy}). Attach only what you need.`);
 
   // Prize trade.

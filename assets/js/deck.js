@@ -34,7 +34,7 @@ async function main() {
   SPEED = goldfish(parsed, D.pokemon || {}, D.lines || [], { games: 4000, seed: hashSeed(D.id) });
 
   root.replaceChildren(
-    D.example ? h('div.banner', 'This is an example deck so you can see the layout. Your own decks will show up on ', h('a', { href: 'decks.html' }, 'My decks'), '.') : null,
+    D.example ? h('div.banner', 'This is an example deck so you can see the layout. Your own decks will show up on ', h('a', { href: 'decks.html' }, 'My decks'), '.') : '',
     hero(fmt, simple, counts),
     matchupSection(),
     methodSection()

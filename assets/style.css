@@ -279,6 +279,22 @@ footer.site-foot { border-top: 1px solid var(--line); padding: 22px 0 40px; font
 .guide-link { justify-self: end; font-size: 0.82rem; font-weight: 700; text-decoration: none; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--ink); background: var(--surface); }
 .guide-link:hover { background: var(--ink); color: #fff; }
 
+/* Ranks 11 to 20, folded under the top 10 */
+.next-ten { margin-top: 12px; }
+.next-ten > summary {
+  list-style: none; cursor: pointer; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; position: relative;
+  padding: 11px 44px 11px 16px; font-weight: 700; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-card);
+}
+.next-ten > summary::-webkit-details-marker { display: none; }
+.next-ten > summary::after { content: '+'; position: absolute; right: 18px; top: 10px; font-weight: 800; color: var(--muted); }
+.next-ten[open] > summary::after { content: '–'; }
+.next-ten > summary small { font-weight: 400; font-size: 0.8rem; color: var(--muted); }
+.next-ten[open] > summary { margin-bottom: 10px; }
+.next-ten > summary:focus-visible { outline: 3px solid var(--frame); outline-offset: 2px; }
+.guides-group + .guides-group { margin-top: 34px; }
+.guides-group > h2 { margin-bottom: 4px; }
+.guides-group > p.small { margin: 0 0 14px; }
+
 /* ---------- Matchup chart: who beats who ---------- */
 .heat-caption { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 10px; max-width: var(--measure); }
 .heat-caption b { font-weight: 700; }

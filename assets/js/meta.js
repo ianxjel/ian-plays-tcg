@@ -99,16 +99,17 @@ function renderAll() {
 
 function renderTop(meta) {
   const maxShare = Math.max(...meta.top.map((t) => t.limitless.share));
-  const head = h(
-    'div.cols-head',
-    h('span', '#'),
-    h('span', 'Deck'),
-    h('span.share-bar', 'Share of the field'),
-    h('span.num', 'Limitless'),
-    h('span.num', 'Trainer Hill'),
-    h('span.num', 'How to beat')
-  );
-  const rows = meta.top.map((t, i) => {
+  const head = () =>
+    h(
+      'div.cols-head',
+      h('span', '#'),
+      h('span', 'Deck'),
+      h('span.share-bar', 'Share of the field'),
+      h('span.num', 'Limitless'),
+      h('span.num', 'Trainer Hill'),
+      h('span.num', 'How to beat')
+    );
+  const row = (t, i) => {
     const a = A[t.id] || { name: t.label || t.id };
     const lw = t.limitless.w !== undefined ? winRate(t.limitless.w, t.limitless.l, t.limitless.t) : null;
     const sub = lw !== null ? `${pct(lw, 1)} win rate, ${t.limitless.count} players` : t.label && t.label !== a.name ? t.label : `${t.limitless.points} points`;
@@ -119,16 +120,28 @@ function renderTop(meta) {
       h('span.share-bar', h('div.bar', h('span', { style: { width: `${(t.limitless.share / maxShare) * 100}%` } }))),
       h('span.num', `${t.limitless.share.toFixed(1)}%`),
       h('span.num', t.trainerHill ? `${t.trainerHill.share.toFixed(1)}%` : '—'),
-      h('a.guide-link', { href: `guide.html?id=${t.id}`, 'aria-label': `Guide: how to beat ${a.name}` }, 'Guide')
+      h('a.guide-link', { href: `guide.html?id=${t.id}`, 'aria-label': `Guide: how to play and beat ${a.name}` }, 'Guide')
     );
     return h('details.deck-row', summary, profile(t.id, a));
-  });
-  document.getElementById('top-list').replaceChildren(h('div.decks-table', head, rows));
+  };
+  const parts = [h('div.decks-table', head(), meta.top.map((t, i) => row(t, i)))];
+  // Ranks 11 to 20: same rows, folded away under the top 10.
+  if (meta.next?.length) {
+    const from = meta.top.length;
+    parts.push(
+      h(
+        'details.next-ten',
+        h('summary', `Ranks ${from + 1} to ${from + meta.next.length}`, h('small', `Limitless online, captured ${fmtDate(meta.nextCaptured || meta.captured)}`)),
+        h('div.decks-table', head(), meta.next.map((t, i) => row(t, from + i)))
+      )
+    );
+  }
+  document.getElementById('top-list').replaceChildren(...parts);
 }
 
 function profile(id, a) {
   if (!a.summary) return h('div.profile', h('p.small', 'No profile for this deck yet.'));
-  const links = [h('li', h('a', { href: `guide.html?id=${id}` }, `Full guide: how every top deck beats ${a.name}`))];
+  const links = [h('li', h('a', { href: `guide.html?id=${id}` }, `Full guide: how to play ${a.short || a.name} and how every top deck beats it`))];
   if (a.sample) links.push(h('li', h('a', { href: a.sample.url, target: '_blank', rel: 'noopener' }, `Sample list: ${a.sample.player}`), `, ${a.sample.event}, ${fmtDate(a.sample.date)}`));
   if (a.limitless) {
     links.push(h('li', h('a', { href: `https://play.limitlesstcg.com/decks/${a.limitless}?format=standard`, target: '_blank', rel: 'noopener' }, 'Results on Limitless')));

@@ -24,7 +24,7 @@
     { "id": "ogerpon-meganium-hydrapple", "label": "Hydrapple ex", "limitless": { "share": 4.32, "points": 696 }, "trainerHill": { "share": 6.2 } },
     { "id": "dhelmise", "label": "Dhelmise Hide n' Sneak", "limitless": { "share": 4.0, "points": 644 }, "trainerHill": { "share": 3.9 } },
     { "id": "crustle", "label": "Crustle Mysterious Rock Inn", "limitless": { "share": 2.8, "points": 451 }, "trainerHill": { "share": 4.3 } },
-    { "id": "mega-lopunny", "label": "Mega Lopunny ex", "limitless": { "share": 2.71, "points": 437 } }
+    { "id": "lopunny-dudunsparce", "label": "Mega Lopunny ex", "limitless": { "share": 2.71, "points": 437 } }
   ],
   "matrix": {}
 }

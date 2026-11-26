@@ -8,8 +8,9 @@ async function main() {
   const fmt = formatState(F.formats).live;
   const META = await loadJSON(fmt.data);
   const lim = matrixLookup(META, 'limitless');
+  // Counters and prey are always measured against the top 10, for both groups.
   const ids = META.top.map((t) => t.id);
-  const cards = META.top.map((t, i) => {
+  const card = (t, rank) => {
     const a = A[t.id];
     const vs = ids
       .filter((id) => id !== t.id)
@@ -24,14 +25,33 @@ async function main() {
     return h(
       'a.tcg-card',
       { href: `guide.html?id=${t.id}` },
-      h('p.small', { style: { margin: 0 } }, `#${i + 1}, ${t.limitless.share.toFixed(1)}% of the field`),
+      h('p.small', { style: { margin: 0 } }, `#${rank}, ${t.limitless.share.toFixed(1)}% of the field`),
       h('h3', a.name),
       h('p.small', { style: { margin: 0 } }, guideLine(S, t.id)),
       h('p', { style: { margin: 0 } }, counters.length ? `Beaten most by ${counters.map((c) => `${A[c.id].short} (${pct(c.wr)})`).join(', ')}.` : 'No deck in the top 10 is clearly favored against it.'),
       prey.length ? h('p.small', { style: { margin: 0 } }, `It beats ${prey.map((c) => `${A[c.id].short} (they win ${pct(c.wr)})`).join(', ')}.`) : null
     );
-  });
-  document.getElementById('guide-list').replaceChildren(h('div.deck-cards', cards), h('p.small', { style: { marginTop: '14px' } }, `${fmt.name}, Limitless online results captured ${fmtDate(META.captured)}.`));
+  };
+  const groups = [
+    h(
+      'section.guides-group',
+      h('h2', 'Top 10'),
+      h('p.small', `${fmt.name}, Limitless online results captured ${fmtDate(META.captured)}.`),
+      h('div.deck-cards', META.top.map((t, i) => card(t, i + 1)))
+    )
+  ];
+  if (META.next?.length) {
+    const from = META.top.length;
+    groups.push(
+      h(
+        'section.guides-group',
+        h('h2', `Ranks ${from + 1} to ${from + META.next.length}`),
+        h('p.small', `Captured ${fmtDate(META.nextCaptured || META.captured)}. Win rates on these cards are still against the top 10.`),
+        h('div.deck-cards', META.next.map((t, i) => card(t, from + i + 1)))
+      )
+    );
+  }
+  document.getElementById('guide-list').replaceChildren(...groups);
 }
 
 function guideLine(S, id) {

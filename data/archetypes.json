@@ -25,7 +25,7 @@
       "beatIt": [
         "Its Megas give up 3 prizes each, so two KOs on Mega ex win the game.",
         "Lightning hits Rayquaza and Talonflame for double; Fighting hits Kangaskhan for double.",
-        "Team Rocket's Watchtower (Colorless Pokémon have no abilities) blanks Ruler's Roar, Run Errand and Excited Dive. N's Zoroark runs it and wins this matchup 61% of the time.",
+        "Team Rocket's Watchtower (Colorless Pokémon have no abilities) blanks Ruler's Roar and Run Errand; Excited Dive still works, because it is used from the hand. N's Zoroark runs it and wins this matchup 61% of the time.",
         "If your engine is an Evolution Pokémon's ability, carry a stadium to bump Pyroduct."
       ],
       "sample": {
@@ -134,7 +134,7 @@
         "handFragility": 0.4
       },
       "engine": {
-        "colorless": "Ruler's Roar, Run Errand and Talonflame's Excited Dive"
+        "colorless": "Ruler's Roar and Run Errand"
       },
       "limitlessId": 377
     },
@@ -1362,7 +1362,7 @@
       },
       "engine": {
         "evolved": "Dusknoir's Cursed Blast",
-        "colorless": "Run Errand and Excited Dive"
+        "colorless": "Mega Kangaskhan ex's Run Errand"
       },
       "limitlessId": 382
     },
@@ -1371,30 +1371,31 @@
       "short": "Crustle",
       "energy": "Grass",
       "limitless": "crustle-dri",
-      "summary": "Crustle's Mysterious Rock Inn prevents all damage done to it by Pokémon ex attacks. Mega Kangaskhan ex and gusts close the game.",
+      "summary": "Crustle (150 HP) takes no damage from Pokémon ex attacks (Mysterious Rock Inn). Eri, Xerosic's Machinations and Gravity Gemstone grind the opponent down while Superb Scissors (120) or Mega Kangaskhan ex take the prizes.",
       "plan": [
-        "Dwebble into Crustle (150 HP) and keep a Crustle Active against ex decks.",
-        "Mega Kangaskhan ex and Boss's Orders take prizes while the wall holds.",
-        "Team Rocket's Petrel finds the right Trainer each turn."
+        "Dwebble's Ascension evolves itself into Crustle; Lumiose City and Buddy-Buddy Poffin get Dwebble down.",
+        "Keep a Crustle Active against Pokémon ex decks: Mysterious Rock Inn prevents all their attack damage.",
+        "Eri discards two Items from their hand, Xerosic's Machinations cuts it to 3, and Gravity Gemstone makes retreating cost more.",
+        "Growing Grass Energy (+20 HP), Hero's Cape, Spiky Energy and Jumbo Ice Cream keep Crustle alive against single-prize attackers."
       ],
       "keyCards": [
         "Crustle",
         "Dwebble",
         "Mega Kangaskhan ex",
-        "Boss's Orders",
-        "Team Rocket's Petrel"
+        "Team Rocket's Petrel",
+        "Eri",
+        "Xerosic's Machinations"
       ],
       "beatIt": [
-        "Bring non-ex attackers, or a way to win without damage: Mega Excadrill's Undermine mill wins 74% here.",
-        "Fire hits Crustle for double.",
-        "Gust around it: Dwebble and Mega Kangaskhan ex are not protected.",
-        "Legendary Pyroduct turns off Mysterious Rock Inn (it's an Ability on an Evolution Pokémon). Mega Rayquaza decks run Pyroduct and beat Crustle 64% of the time."
+        "Single-prize attackers ignore the wall: Rocket's Honchkrow wins 75% online and Slowking 57%.",
+        "Mysterious Rock Inn is an Ability on an Evolution Pokémon, so Legendary Pyroduct turns it off. Mega Rayquaza, which plays four, wins 64%.",
+        "Crustle is Weak to Fire, and Mega Excadrill's Undermine mills them in a long game: Excadrill wins 74%."
       ],
       "sample": {
         "player": "Marco Cifuentes Meta",
         "event": "LAIC 2026–27, São Paulo (11th)",
         "date": "2026-11-20",
-        "url": "https://limitlesstcg.com/tournaments/574/decklists"
+        "url": "https://limitlesstcg.com/decks/list/31364"
       },
       "confidence": "low",
       "model": {
@@ -1485,24 +1486,31 @@
       "short": "Festival",
       "energy": "Grass",
       "limitless": "festival-lead",
-      "summary": "Single-prize Grass aggro built on Dipplin and Thwackey with Festival Grounds.",
+      "summary": "Single-prize Grass aggro. With Festival Grounds in play, Dipplin and Seaking can attack twice a turn (Festival Lead), and Dipplin's Do the Wave does 20 for each of your benched Pokémon. Thwackey searches any card each turn while a Festival Lead Pokémon is Active.",
       "plan": [
-        "Fast single-prize attackers that trade evenly into big ex decks."
+        "Fill the bench fast: Do the Wave does 20 per benched Pokémon, so five benched is 100, twice.",
+        "Festival Grounds must be in play for the second attack; play one every turn you can.",
+        "Thwackey's Boom Boom Groove searches any card while Dipplin or Seaking is Active.",
+        "Gladion's Final Battle (your last card in hand) adds 80 to each attack; Brave Bangle adds 30 against a Pokémon ex. Rabsca protects your bench from attacks."
       ],
       "keyCards": [
         "Dipplin",
         "Thwackey",
-        "Festival Grounds"
+        "Festival Grounds",
+        "Seaking",
+        "Gladion's Final Battle",
+        "Rabsca"
       ],
       "beatIt": [
-        "Fire Weakness.",
-        "Dragapult farms its low-HP bench."
+        "Remove Festival Grounds and they attack once a turn: any Stadium you play replaces it.",
+        "Its attackers have 80 to 110 HP, so small hits Knock them Out. Dragapult wins 64% online.",
+        "Talonflame Dusknoir wins 70% and Mega Excadrill 67%."
       ],
       "sample": {
         "player": "Murilo Mercadante",
         "event": "LAIC 2026–27, São Paulo (5th)",
         "date": "2026-11-20",
-        "url": "https://limitlesstcg.com/tournaments/574/decklists"
+        "url": "https://limitlesstcg.com/decks/list/31362"
       },
       "confidence": "low",
       "model": {
@@ -1515,43 +1523,58 @@
         "attackers": [
           {
             "name": "Dipplin",
-            "hp": 90,
+            "hp": 80,
             "prizes": 1,
             "type": "Grass",
             "weakness": "Fire",
-            "weight": 0.7,
+            "energy": 1,
+            "weight": 0.75,
             "dmg": {
-              "base": 160,
-              "sd": 40
-            },
-            "energy": 2
+              "base": 200,
+              "sd": 60
+            }
           },
           {
-            "name": "Thwackey",
-            "hp": 100,
+            "name": "Seaking",
+            "hp": 110,
             "prizes": 1,
-            "type": "Grass",
-            "weakness": "Fire",
-            "weight": 0.3,
+            "type": "Water",
+            "weakness": "Lightning",
+            "energy": 1,
+            "weight": 0.25,
             "dmg": {
               "base": 120
-            },
-            "energy": 2
+            }
           }
         ],
         "bench": [
           {
+            "name": "Thwackey",
+            "hp": 100,
+            "prizes": 1,
+            "p": 0.7,
+            "weakness": "Fire",
+            "line": true
+          },
+          {
             "name": "Grookey",
             "hp": 70,
             "prizes": 1,
-            "p": 0.6,
+            "p": 0.5,
             "weakness": "Fire"
           },
           {
             "name": "Applin",
             "hp": 70,
             "prizes": 1,
-            "p": 0.6,
+            "p": 0.5,
+            "weakness": "Fire"
+          },
+          {
+            "name": "Rabsca",
+            "hp": 70,
+            "prizes": 1,
+            "p": 0.3,
             "weakness": "Fire"
           }
         ],
@@ -1574,28 +1597,47 @@
         "consistency": 0.87,
         "gust": 0.5,
         "stock": 8,
-        "setupFragility": 0.2
+        "setupFragility": 0.2,
+        "reliesOn": {
+          "evolved": 0.5
+        }
       },
-      "limitlessId": 336
+      "limitlessId": 336,
+      "engine": {
+        "evolved": "Festival Lead (two attacks a turn), Thwackey's Boom Boom Groove and Rabsca's Spherical Shield"
+      }
     },
     "dragapult-dudunsparce": {
       "name": "Dragapult Dudunsparce",
       "short": "Dragapult D.",
       "energy": "Dragon",
       "limitless": "dragapult-dudunsparce",
-      "summary": "Dragapult ex with Dudunsparce for extra draw instead of hammers. The best win rate among popular decks online right now (56%).",
+      "summary": "Dragapult ex with a heavier Dudunsparce engine: Dudunsparce draws 3, and Dudunsparce ex's Tenacious Tail does 60 for each Pokémon ex your opponent has in play. Maximus Sandoval's 30th-place LAIC list still runs four Crushing Hammer.",
       "plan": [
-        "Same Phantom Dive plan as Dragapult, with more draw and fewer disruption cards."
+        "Same Phantom Dive plan as Dragapult: Dreepy, Drakloak, Dragapult ex on your third turn.",
+        "Dudunsparce's Run Away Draw tops up the hand when Recon Directive isn't enough.",
+        "Dudunsparce ex's Tenacious Tail (one Energy) punishes benches full of Pokémon ex.",
+        "Rosa's Encouragement puts two Energy from the discard back on a Stage 2 when you are behind on prizes."
       ],
       "keyCards": [
         "Dragapult ex",
+        "Dudunsparce ex",
         "Dudunsparce",
-        "Drakloak"
+        "Drakloak",
+        "Crushing Hammer",
+        "Rosa's Encouragement"
       ],
       "beatIt": [
-        "Same as Dragapult: plan two-hit KOs on its 320 HP and keep low-HP basics off the bench."
+        "The same answers as Dragapult: Lillie's Clefairy ex, Hide 'n' Sneak and Battle Cage.",
+        "Straight Dragapult wins 55% of these games online, and Mega Lucario 59%.",
+        "Dudunsparce ex gives up 2 prizes: Boss's Orders it."
       ],
-      "sample": null,
+      "sample": {
+        "player": "Maximus Sandoval",
+        "event": "LAIC 2026–27, São Paulo (30th)",
+        "date": "2026-11-20",
+        "url": "https://limitlesstcg.com/tournaments/574/decklists"
+      },
       "confidence": "medium",
       "model": {
         "starter": {
@@ -1610,7 +1652,956 @@
             "prizes": 2,
             "type": "Dragon",
             "ex": true,
-            "weight": 1,
+            "weight": 0.88,
+            "dmg": {
+              "base": 200
+            },
+            "spread": 60,
+            "energy": 2,
+            "spreadName": "Phantom Dive"
+          },
+          {
+            "name": "Dudunsparce ex",
+            "hp": 270,
+            "prizes": 2,
+            "type": "Colorless",
+            "weakness": "Fighting",
+            "ex": true,
+            "weight": 0.12,
+            "energy": 1,
+            "dmg": {
+              "base": 180,
+              "sd": 60
+            }
+          }
+        ],
+        "bench": [
+          {
+            "name": "Dreepy",
+            "hp": 70,
+            "prizes": 1,
+            "p": 0.6,
+            "line": true
+          },
+          {
+            "name": "Drakloak",
+            "hp": 90,
+            "prizes": 1,
+            "p": 0.6,
+            "line": true
+          },
+          {
+            "name": "Munkidori",
+            "hp": 110,
+            "prizes": 1,
+            "p": 0.55
+          },
+          {
+            "name": "Meowth ex",
+            "hp": 170,
+            "prizes": 2,
+            "p": 0.6
+          },
+          {
+            "name": "Fezandipiti ex",
+            "hp": 210,
+            "prizes": 2,
+            "p": 0.5
+          },
+          {
+            "name": "Dudunsparce",
+            "hp": 140,
+            "prizes": 1,
+            "p": 0.5
+          }
+        ],
+        "speed": {
+          "first": [
+            0,
+            0.1,
+            0.68,
+            0.88,
+            0.95
+          ],
+          "second": [
+            0,
+            0.15,
+            0.72,
+            0.9,
+            0.96
+          ]
+        },
+        "consistency": 0.88,
+        "gust": 0.6,
+        "stock": 4,
+        "pings": {
+          "dmg": 30,
+          "p": 0.45
+        },
+        "reliesOn": {
+          "evolved": 0.35,
+          "colorless": 0.15
+        },
+        "energyFragility": 0.5,
+        "benchPrep": 0.55,
+        "reload": 0.75,
+        "setupFragility": 0.6,
+        "disrupt": {
+          "energy": 0.2,
+          "hand": 0.1
+        }
+      },
+      "engine": {
+        "evolved": "Drakloak's Recon Directive and Dudunsparce's Run Away Draw",
+        "colorless": "Dudunsparce's Run Away Draw"
+      },
+      "limitlessId": "284?variant=12"
+    },
+    "lopunny-dudunsparce": {
+      "name": "Lopunny Dudunsparce",
+      "short": "Lopunny",
+      "energy": "Colorless",
+      "limitless": "lopunny-dudunsparce",
+      "limitlessId": 353,
+      "summary": "Mega Lopunny ex (330 HP) does 230 for one Energy when it moved from the bench to the Active Spot this turn. Dudunsparce's Run Away Draw, used from the Active Spot, draws 3 and leaves the Spot to Lopunny. Mega Froslass ex does 50 for each card in your opponent's hand.",
+      "plan": [
+        "Fan Rotom's Fan Call (your first turn only) finds Buneary and Dunsparce.",
+        "Gale Thrust does 60, plus 170 if Mega Lopunny ex moved from your bench to the Active Spot this turn. Dudunsparce's Run Away Draw from the Active Spot draws 3 and shuffles Dudunsparce away, so the Lopunny you promote counts.",
+        "Air Balloon on Lopunny makes the retreat into Dudunsparce free: one Lopunny can attack for 230 every turn.",
+        "Mega Froslass ex's Resentful Refrain does 50 for each card in their hand, and Wally's Compassion heals a Mega completely."
+      ],
+      "keyCards": [
+        "Mega Lopunny ex",
+        "Mega Froslass ex",
+        "Dudunsparce",
+        "Wally's Compassion",
+        "Air Balloon",
+        "Battle Cage"
+      ],
+      "beatIt": [
+        "Mega Lopunny ex is Weak to Fighting; Mega Lucario wins 60% online.",
+        "Both attackers are Megas: two Knock Outs are six prizes.",
+        "Keep your hand small against Mega Froslass ex. Dragapult wins 65% of these games online."
+      ],
+      "sample": {
+        "player": "delulurick",
+        "event": "Circuito TCG #7, online (1st of 70)",
+        "date": "2026-11-11",
+        "url": "https://play.limitlesstcg.com/tournament/6af435bf00d53a11f5b90fd1/player/delulurick/decklist"
+      },
+      "confidence": "medium",
+      "engine": {
+        "colorless": "Dudunsparce's Run Away Draw and Fan Rotom's Fan Call"
+      },
+      "model": {
+        "starter": {
+          "name": "Dunsparce",
+          "hp": 70,
+          "prizes": 1
+        },
+        "attackers": [
+          {
+            "name": "Mega Lopunny ex",
+            "hp": 330,
+            "prizes": 3,
+            "type": "Colorless",
+            "weakness": "Fighting",
+            "ex": true,
+            "weight": 0.7,
+            "energy": 1,
+            "dmg": {
+              "base": 230
+            }
+          },
+          {
+            "name": "Mega Froslass ex",
+            "hp": 310,
+            "prizes": 3,
+            "type": "Water",
+            "weakness": "Metal",
+            "ex": true,
+            "weight": 0.3,
+            "energy": 1,
+            "dmg": {
+              "base": 220,
+              "sd": 70
+            }
+          }
+        ],
+        "bench": [
+          {
+            "name": "Dunsparce",
+            "hp": 70,
+            "prizes": 1,
+            "p": 0.5
+          },
+          {
+            "name": "Dudunsparce",
+            "hp": 140,
+            "prizes": 1,
+            "p": 0.6
+          },
+          {
+            "name": "Buneary",
+            "hp": 70,
+            "prizes": 1,
+            "p": 0.5,
+            "weakness": "Fighting",
+            "line": true
+          },
+          {
+            "name": "Fan Rotom",
+            "hp": 70,
+            "prizes": 1,
+            "p": 0.4
+          }
+        ],
+        "speed": {
+          "first": [
+            0,
+            0.6,
+            0.85,
+            0.93,
+            0.97
+          ],
+          "second": [
+            0,
+            0.65,
+            0.88,
+            0.95,
+            0.97
+          ]
+        },
+        "consistency": 0.84,
+        "gust": 0.5,
+        "stock": 3,
+        "reliesOn": {
+          "colorless": 0.35
+        },
+        "setupFragility": 0.35
+      }
+    },
+    "mega-lucario": {
+      "name": "Mega Lucario",
+      "short": "Lucario",
+      "energy": "Fighting",
+      "limitless": "mega-lucario-ex",
+      "limitlessId": 345,
+      "summary": "Mega Lucario ex (Stage 1, 340 HP) hits for 270 with Mega Brave, or 130 with Aura Jab while putting up to three Fighting Energy from the discard onto the bench. Lunatone and Solrock draw and chip; Premium Power Pro adds 30.",
+      "plan": [
+        "Riolu into Mega Lucario ex on turn two; Fighting Gong finds Riolu, Lunatone, Solrock or Energy.",
+        "Alternate Mega Brave (270, not two turns running) with Aura Jab (130, refuels the bench from the discard).",
+        "Lunatone's Lunar Cycle draws 3 for a Fighting Energy while Solrock is in play.",
+        "Hariyama's Heave-Ho Catcher pulls a benched Pokémon into the Active Spot the turn it evolves."
+      ],
+      "keyCards": [
+        "Mega Lucario ex",
+        "Riolu",
+        "Lunatone",
+        "Solrock",
+        "Premium Power Pro",
+        "Fighting Gong"
+      ],
+      "beatIt": [
+        "Mega Lucario ex is Weak to Psychic: Dhelmise wins 80% online and Slowking 68%.",
+        "It is a Mega: two Knock Outs on Lucario are six prizes.",
+        "Mega Brave can't be used two turns in a row; survive the 270 turn and punish the Aura Jab turn."
+      ],
+      "sample": {
+        "player": "Hamilton Viveiros",
+        "event": "LAIC 2026–27, São Paulo (49th)",
+        "date": "2026-11-20",
+        "url": "https://limitlesstcg.com/decks/list/31393"
+      },
+      "confidence": "medium",
+      "engine": {
+        "evolved": "Hariyama's Heave-Ho Catcher"
+      },
+      "model": {
+        "starter": {
+          "name": "Riolu",
+          "hp": 80,
+          "prizes": 1,
+          "weakness": "Psychic"
+        },
+        "attackers": [
+          {
+            "name": "Mega Lucario ex",
+            "hp": 340,
+            "prizes": 3,
+            "type": "Fighting",
+            "weakness": "Psychic",
+            "ex": true,
+            "weight": 0.85,
+            "energy": 2,
+            "dmg": {
+              "base": 230,
+              "sd": 40
+            }
+          },
+          {
+            "name": "Cornerstone Mask Ogerpon ex",
+            "hp": 210,
+            "prizes": 2,
+            "type": "Fighting",
+            "weakness": "Grass",
+            "ex": true,
+            "weight": 0.15,
+            "energy": 3,
+            "dmg": {
+              "base": 140
+            }
+          }
+        ],
+        "bench": [
+          {
+            "name": "Riolu",
+            "hp": 80,
+            "prizes": 1,
+            "p": 0.55,
+            "weakness": "Psychic",
+            "line": true
+          },
+          {
+            "name": "Lunatone",
+            "hp": 110,
+            "prizes": 1,
+            "p": 0.6,
+            "weakness": "Grass"
+          },
+          {
+            "name": "Solrock",
+            "hp": 110,
+            "prizes": 1,
+            "p": 0.6,
+            "weakness": "Grass"
+          },
+          {
+            "name": "Meowth ex",
+            "hp": 170,
+            "prizes": 2,
+            "p": 0.4
+          }
+        ],
+        "speed": {
+          "first": [
+            0,
+            0.65,
+            0.88,
+            0.95,
+            0.98
+          ],
+          "second": [
+            0,
+            0.7,
+            0.9,
+            0.96,
+            0.98
+          ]
+        },
+        "consistency": 0.85,
+        "gust": 0.45,
+        "stock": 3,
+        "energyFragility": 0.3,
+        "setupFragility": 0.3
+      }
+    },
+    "rockets-honchkrow": {
+      "name": "Rocket's Honchkrow",
+      "short": "Honchkrow",
+      "energy": "Darkness",
+      "limitless": "rockets-honchkrow",
+      "limitlessId": 356,
+      "summary": "Team Rocket's Honchkrow discards Team Rocket Supporters from your hand for 60 damage each (Rocket Feathers). Twenty Team Rocket Supporters and Team Rocket's Ariana (draw to 8) keep the hand full; Team Rocket's Porygon2 hits for 20 per Team Rocket Supporter in the discard.",
+      "plan": [
+        "Team Rocket's Proton on turn one, even going first, finds three Basic Team Rocket's Pokémon.",
+        "Team Rocket's Ariana draws until you hold 8 cards while all your Pokémon are Team Rocket's.",
+        "Rocket Feathers: discard four Team Rocket Supporters for 240, five for 300, for two Energy.",
+        "Team Rocket's Giovanni swaps your Active and pulls up theirs; Team Rocket's Articuno blocks attack effects on your Basic Team Rocket's Pokémon."
+      ],
+      "keyCards": [
+        "Team Rocket's Honchkrow",
+        "Team Rocket's Murkrow",
+        "Team Rocket's Ariana",
+        "Team Rocket's Proton",
+        "Team Rocket's Giovanni",
+        "Team Rocket's Porygon2"
+      ],
+      "beatIt": [
+        "Honchkrow (130 HP) and Murkrow (80) are small single-prize Pokémon: anything that does 130 trades evenly.",
+        "Festival Lead wins 83% online and Talonflame Dusknoir 72%.",
+        "Hand disruption takes away the Supporters it discards for damage."
+      ],
+      "sample": {
+        "player": "Michel Eugenio",
+        "event": "LAIC 2026–27, São Paulo (32nd)",
+        "date": "2026-11-20",
+        "url": "https://limitlesstcg.com/decks/list/31381"
+      },
+      "confidence": "medium",
+      "model": {
+        "starter": {
+          "name": "Team Rocket's Murkrow",
+          "hp": 80,
+          "prizes": 1,
+          "weakness": "Lightning"
+        },
+        "attackers": [
+          {
+            "name": "Team Rocket's Honchkrow",
+            "hp": 130,
+            "prizes": 1,
+            "type": "Darkness",
+            "weakness": "Lightning",
+            "resist": "Fighting",
+            "energy": 2,
+            "weight": 0.8,
+            "dmg": {
+              "base": 240,
+              "sd": 60
+            }
+          },
+          {
+            "name": "Team Rocket's Porygon2",
+            "hp": 90,
+            "prizes": 1,
+            "type": "Colorless",
+            "weakness": "Fighting",
+            "energy": 3,
+            "weight": 0.2,
+            "dmg": {
+              "base": 160,
+              "sd": 40
+            }
+          }
+        ],
+        "bench": [
+          {
+            "name": "Team Rocket's Murkrow",
+            "hp": 80,
+            "prizes": 1,
+            "p": 0.6,
+            "weakness": "Lightning",
+            "line": true
+          },
+          {
+            "name": "Team Rocket's Articuno",
+            "hp": 120,
+            "prizes": 1,
+            "p": 0.4
+          }
+        ],
+        "speed": {
+          "first": [
+            0,
+            0.7,
+            0.9,
+            0.96,
+            0.98
+          ],
+          "second": [
+            0,
+            0.75,
+            0.92,
+            0.97,
+            0.99
+          ]
+        },
+        "consistency": 0.86,
+        "gust": 0.55,
+        "stock": 6,
+        "handFragility": 0.5,
+        "setupFragility": 0.25
+      }
+    },
+    "greninja": {
+      "name": "Greninja",
+      "short": "Greninja",
+      "energy": "Water",
+      "limitless": "greninja-ex",
+      "limitlessId": 287,
+      "summary": "Greninja ex (Stage 2, 310 HP, a Fighting-type Tera Pokémon) attacks for one Water: Shinobi Blade does 170 and searches your deck for any card. Mirage Barrage discards two Energy for 120 to two Pokémon. Robson Fortes's LAIC list adds Dusknoir, Mega Froslass ex and Mega Starmie ex as a toolbox.",
+      "plan": [
+        "Froakie, then Frogadier (Summoning Jutsu finds three Pokémon), then Greninja ex; Rare Candy and Grand Tree speed it up.",
+        "Shinobi Blade every turn for one Water: 170 and any card from your deck.",
+        "Mirage Barrage (120 to two Pokémon) sets up double Knock Outs; it costs two Energy off Greninja.",
+        "Dusknoir's Cursed Blast, Mega Starmie ex (210, ignoring effects) and Mega Froslass ex cover what Greninja can't."
+      ],
+      "keyCards": [
+        "Greninja ex",
+        "Frogadier",
+        "Dusknoir",
+        "Mega Starmie ex",
+        "Grand Tree",
+        "Rare Candy"
+      ],
+      "beatIt": [
+        "Greninja ex is Weak to Psychic: Dhelmise wins 79% online.",
+        "Dragapult wins 61% and Mega Excadrill 67%.",
+        "On the bench Greninja ex takes no damage from attacks (Tera), but damage counters still land: Phantom Dive and Cursed Blast work."
+      ],
+      "sample": {
+        "player": "Robson Fortes",
+        "event": "LAIC 2026–27, São Paulo (101st)",
+        "date": "2026-11-20",
+        "url": "https://limitlesstcg.com/decks/list/31428"
+      },
+      "confidence": "medium",
+      "engine": {
+        "evolved": "Dusknoir's Cursed Blast"
+      },
+      "model": {
+        "starter": {
+          "name": "Froakie",
+          "hp": 70,
+          "prizes": 1,
+          "weakness": "Lightning"
+        },
+        "attackers": [
+          {
+            "name": "Greninja ex",
+            "hp": 310,
+            "prizes": 2,
+            "type": "Fighting",
+            "weakness": "Psychic",
+            "ex": true,
+            "energy": 1,
+            "weight": 0.75,
+            "dmg": {
+              "base": 170
+            }
+          },
+          {
+            "name": "Mega Starmie ex",
+            "hp": 330,
+            "prizes": 3,
+            "type": "Water",
+            "weakness": "Lightning",
+            "ex": true,
+            "energy": 3,
+            "weight": 0.25,
+            "dmg": {
+              "base": 210
+            }
+          }
+        ],
+        "snipe": {
+          "name": "Dusknoir",
+          "dmg": 130,
+          "uses": 2,
+          "p": 0.5,
+          "from": 3,
+          "prizeCost": 1,
+          "lockedBy": "evolved"
+        },
+        "bench": [
+          {
+            "name": "Froakie",
+            "hp": 70,
+            "prizes": 1,
+            "p": 0.5,
+            "weakness": "Lightning",
+            "line": true
+          },
+          {
+            "name": "Frogadier",
+            "hp": 100,
+            "prizes": 1,
+            "p": 0.5,
+            "weakness": "Lightning",
+            "line": true
+          },
+          {
+            "name": "Duskull",
+            "hp": 60,
+            "prizes": 1,
+            "p": 0.4,
+            "weakness": "Darkness"
+          },
+          {
+            "name": "Meowth ex",
+            "hp": 170,
+            "prizes": 2,
+            "p": 0.5
+          },
+          {
+            "name": "Latias ex",
+            "hp": 210,
+            "prizes": 2,
+            "p": 0.3
+          }
+        ],
+        "speed": {
+          "first": [
+            0,
+            0.45,
+            0.85,
+            0.95,
+            0.98
+          ],
+          "second": [
+            0,
+            0.5,
+            0.88,
+            0.96,
+            0.98
+          ]
+        },
+        "consistency": 0.86,
+        "gust": 0.45,
+        "stock": 3,
+        "reliesOn": {
+          "evolved": 0.2
+        },
+        "setupFragility": 0.5
+      }
+    },
+    "dragapult-blaziken": {
+      "name": "Dragapult Blaziken",
+      "short": "Dragapult Blaziken",
+      "energy": "Psychic/Fire",
+      "limitless": "dragapult-blaziken",
+      "limitlessId": "284?variant=9",
+      "summary": "Dragapult ex with Blaziken ex as an Energy engine: Seething Spirit attaches a Basic Energy from the discard every turn, so the Energy on a Knocked Out Dragapult comes straight back. Team Rocket's Watchtower turns off Colorless Pokémon's Abilities.",
+      "plan": [
+        "Build the Dreepy and Torchic lines together; Rare Candy skips Combusken.",
+        "Blaziken ex's Seething Spirit reattaches Energy from the discard every turn, so the next Dragapult ex can attack the turn it evolves.",
+        "Phantom Dive: 200 plus 6 counters on the bench; Munkidori moves 3 more.",
+        "Team Rocket's Watchtower turns off Mega Kangaskhan ex, Mega Rayquaza ex, Meowth ex and Dudunsparce."
+      ],
+      "keyCards": [
+        "Dragapult ex",
+        "Blaziken ex",
+        "Drakloak",
+        "Rare Candy",
+        "Team Rocket's Watchtower",
+        "Munkidori"
+      ],
+      "beatIt": [
+        "Two Stage 2 lines are slow: early pressure and Boss's Orders on Drakloak or Combusken break it.",
+        "Blaziken ex (320 HP) is Weak to Water; Dhelmise wins 59% online and Mega Lucario 57%.",
+        "The same answers as Dragapult: Lillie's Clefairy ex, Hide 'n' Sneak and Battle Cage."
+      ],
+      "sample": {
+        "player": "CornDog_XX",
+        "event": "SEASAC League Challenge #24, online (8-1-1)",
+        "date": "2026-11-08",
+        "url": "https://play.limitlesstcg.com/tournament/6aeeb490c931f53978d954e2/player/corndog_xx/decklist"
+      },
+      "confidence": "medium",
+      "engine": {
+        "evolved": "Drakloak's Recon Directive and Blaziken ex's Seething Spirit"
+      },
+      "model": {
+        "starter": {
+          "name": "Dreepy",
+          "hp": 70,
+          "prizes": 1
+        },
+        "attackers": [
+          {
+            "name": "Dragapult ex",
+            "hp": 320,
+            "prizes": 2,
+            "type": "Dragon",
+            "ex": true,
+            "weight": 0.9,
+            "dmg": {
+              "base": 200
+            },
+            "spread": 60,
+            "energy": 2,
+            "spreadName": "Phantom Dive"
+          },
+          {
+            "name": "Blaziken ex",
+            "hp": 320,
+            "prizes": 2,
+            "type": "Fire",
+            "weakness": "Water",
+            "ex": true,
+            "weight": 0.1,
+            "energy": 2,
+            "dmg": {
+              "base": 200
+            }
+          }
+        ],
+        "bench": [
+          {
+            "name": "Dreepy",
+            "hp": 70,
+            "prizes": 1,
+            "p": 0.6,
+            "line": true
+          },
+          {
+            "name": "Drakloak",
+            "hp": 90,
+            "prizes": 1,
+            "p": 0.6,
+            "line": true
+          },
+          {
+            "name": "Munkidori",
+            "hp": 110,
+            "prizes": 1,
+            "p": 0.55
+          },
+          {
+            "name": "Meowth ex",
+            "hp": 170,
+            "prizes": 2,
+            "p": 0.6
+          },
+          {
+            "name": "Fezandipiti ex",
+            "hp": 210,
+            "prizes": 2,
+            "p": 0.5
+          },
+          {
+            "name": "Combusken",
+            "hp": 100,
+            "prizes": 1,
+            "p": 0.4,
+            "weakness": "Water",
+            "line": true
+          },
+          {
+            "name": "Torchic",
+            "hp": 70,
+            "prizes": 1,
+            "p": 0.4,
+            "weakness": "Water",
+            "line": true
+          }
+        ],
+        "speed": {
+          "first": [
+            0,
+            0.1,
+            0.68,
+            0.88,
+            0.95
+          ],
+          "second": [
+            0,
+            0.15,
+            0.72,
+            0.9,
+            0.96
+          ]
+        },
+        "consistency": 0.88,
+        "gust": 0.6,
+        "stock": 4,
+        "pings": {
+          "dmg": 30,
+          "p": 0.45
+        },
+        "reliesOn": {
+          "evolved": 0.45
+        },
+        "energyFragility": 0.25,
+        "benchPrep": 0.55,
+        "reload": 0.75,
+        "setupFragility": 0.65,
+        "locks": {
+          "colorless": 0.5
+        }
+      }
+    },
+    "sharpedo-toxtricity": {
+      "name": "Sharpedo Toxtricity",
+      "short": "Sharpedo",
+      "energy": "Darkness",
+      "limitless": "sharpedo-toxtricity",
+      "limitlessId": 354,
+      "summary": "Mega Sharpedo ex (330 HP, Retreat 0) does 270 with Hungry Jaws once it has any damage counters on it. Toxtricity's Sinister Surge attaches a Darkness Energy to a benched Sharpedo and puts 2 counters on it, which turns that bonus on.",
+      "plan": [
+        "Carvanha and Toxel early; each turn Sinister Surge powers and damages a benched Sharpedo.",
+        "Hungry Jaws (two Darkness): 120, plus 150 if Sharpedo has any damage counters on it.",
+        "Pecharunt ex's Subjugating Chains switches a Sharpedo in Poisoned, and Binding Mochi adds 40 while it is Poisoned.",
+        "Munkidori moves counters from your damaged Pokémon to theirs; Watchtower and Gravity Mountain pick the matchups you punish."
+      ],
+      "keyCards": [
+        "Mega Sharpedo ex",
+        "Toxtricity",
+        "Pecharunt ex",
+        "Binding Mochi",
+        "Munkidori",
+        "Janine's Secret Art"
+      ],
+      "beatIt": [
+        "Mega Sharpedo ex is Weak to Grass: the Hydrapple deck wins 76% online.",
+        "It is a Mega: two Knock Outs are six prizes. Mega Lucario wins 71%.",
+        "Festival Lead's single-prize attackers win 71%."
+      ],
+      "sample": {
+        "player": "William Stull",
+        "event": "TOURNAMENT OF DOOM! Stuff., online (10-3-0)",
+        "date": "2026-11-21",
+        "url": "https://play.limitlesstcg.com/tournament/6ae97a1ce94eae0f94746407/player/tapuwill/decklist"
+      },
+      "confidence": "medium",
+      "engine": {
+        "evolved": "Toxtricity's Sinister Surge"
+      },
+      "model": {
+        "starter": {
+          "name": "Carvanha",
+          "hp": 70,
+          "prizes": 1,
+          "weakness": "Grass"
+        },
+        "attackers": [
+          {
+            "name": "Mega Sharpedo ex",
+            "hp": 330,
+            "prizes": 3,
+            "type": "Darkness",
+            "weakness": "Grass",
+            "ex": true,
+            "energy": 2,
+            "weight": 0.85,
+            "dmg": {
+              "base": 270,
+              "sd": 30
+            }
+          },
+          {
+            "name": "Pecharunt ex",
+            "hp": 190,
+            "prizes": 2,
+            "type": "Darkness",
+            "weakness": "Fighting",
+            "ex": true,
+            "energy": 2,
+            "weight": 0.15,
+            "dmg": {
+              "base": 180,
+              "sd": 60
+            }
+          }
+        ],
+        "bench": [
+          {
+            "name": "Toxel",
+            "hp": 70,
+            "prizes": 1,
+            "p": 0.5,
+            "line": true
+          },
+          {
+            "name": "Toxtricity",
+            "hp": 140,
+            "prizes": 1,
+            "p": 0.6,
+            "weakness": "Fighting",
+            "line": true
+          },
+          {
+            "name": "Munkidori",
+            "hp": 110,
+            "prizes": 1,
+            "p": 0.5
+          },
+          {
+            "name": "Pecharunt ex",
+            "hp": 190,
+            "prizes": 2,
+            "p": 0.5
+          },
+          {
+            "name": "Tatsugiri",
+            "hp": 70,
+            "prizes": 1,
+            "p": 0.4
+          }
+        ],
+        "speed": {
+          "first": [
+            0,
+            0.6,
+            0.88,
+            0.95,
+            0.98
+          ],
+          "second": [
+            0,
+            0.65,
+            0.9,
+            0.96,
+            0.98
+          ]
+        },
+        "consistency": 0.85,
+        "gust": 0.5,
+        "stock": 3,
+        "pings": {
+          "dmg": 30,
+          "p": 0.5
+        },
+        "locks": {
+          "colorless": 0.35
+        },
+        "reliesOn": {
+          "evolved": 0.35
+        },
+        "setupFragility": 0.35
+      }
+    },
+    "dragapult-dusknoir": {
+      "name": "Dragapult Dusknoir",
+      "short": "Dragapult Dusknoir",
+      "energy": "Psychic/Fire",
+      "limitless": "dragapult-dusknoir",
+      "limitlessId": "284?variant=3",
+      "summary": "Dragapult ex plus Dusknoir's Cursed Blast (13 damage counters on any Pokémon, then Dusknoir is Knocked Out). Phantom Dive's bench counters and Cursed Blast add up to Knock Outs Dragapult can't reach alone.",
+      "plan": [
+        "Build the Dreepy and Duskull lines together: Dawn finds a whole line, Hilda an Evolution and an Energy.",
+        "Phantom Dive does 200 plus 6 counters; Cursed Blast adds 13 more anywhere (Dusclops: 5).",
+        "Telepathic Psychic Energy benches two Basic Psychic Pokémon; Neo Upper Energy powers a Stage 2.",
+        "Team Rocket's Watchtower turns off Colorless Pokémon's Abilities."
+      ],
+      "keyCards": [
+        "Dragapult ex",
+        "Dusknoir",
+        "Dusclops",
+        "Dawn",
+        "Hilda",
+        "Team Rocket's Watchtower"
+      ],
+      "beatIt": [
+        "Every Cursed Blast gives you a prize: make them spend Dusknoir on single-prize Pokémon.",
+        "Psyduck's Damp turns off Cursed Blast, and Battle Cage stops it on your bench.",
+        "Basic Box wins 71% online, Mega Lucario 69% and Dhelmise 67%."
+      ],
+      "sample": {
+        "player": "AlchVGC",
+        "event": "Team Corna Weekly November #2, online (7-3-0)",
+        "date": "2026-11-17",
+        "url": "https://play.limitlesstcg.com/tournament/6afaed8db2fccaf0272d3dc5/player/alchvgc/decklist"
+      },
+      "confidence": "medium",
+      "engine": {
+        "evolved": "Drakloak's Recon Directive and Dusknoir's Cursed Blast"
+      },
+      "model": {
+        "starter": {
+          "name": "Dreepy",
+          "hp": 70,
+          "prizes": 1
+        },
+        "attackers": [
+          {
+            "name": "Dragapult ex",
+            "hp": 320,
+            "prizes": 2,
+            "type": "Dragon",
+            "ex": true,
+            "weight": 1.0,
             "dmg": {
               "base": 200
             },
@@ -1635,129 +2626,70 @@
             "line": true
           },
           {
-            "name": "Dudunsparce",
-            "hp": 140,
-            "prizes": 1,
-            "p": 0.7
-          },
-          {
             "name": "Fezandipiti ex",
             "hp": 210,
             "prizes": 2,
             "p": 0.5
-          }
-        ],
-        "speed": {
-          "first": [
-            0,
-            0.12,
-            0.72,
-            0.9,
-            0.96
-          ],
-          "second": [
-            0,
-            0.17,
-            0.76,
-            0.92,
-            0.97
-          ]
-        },
-        "consistency": 0.9,
-        "gust": 0.6,
-        "stock": 4,
-        "disrupt": {
-          "hand": 0.15
-        },
-        "reliesOn": {
-          "evolved": 0.35
-        },
-        "benchPrep": 0.55,
-        "reload": 0.75,
-        "setupFragility": 0.6
-      },
-      "engine": {
-        "evolved": "Drakloak's Recon Directive and Dudunsparce's draw"
-      }
-    },
-    "mega-lopunny": {
-      "name": "Mega Lopunny",
-      "short": "Lopunny",
-      "energy": "Colorless",
-      "limitless": "mega-lopunny-ex",
-      "summary": "Mega Lopunny ex (Stage 1, 330 HP): Gale Thrust does 230 for one Energy when it moved from the bench to the Active Spot this turn.",
-      "plan": [
-        "Switch or retreat into Lopunny every turn for 230 damage."
-      ],
-      "keyCards": [
-        "Mega Lopunny ex",
-        "Buneary",
-        "Switch"
-      ],
-      "beatIt": [
-        "Fighting Weakness and 3 prizes per KO."
-      ],
-      "sample": null,
-      "confidence": "low",
-      "model": {
-        "starter": {
-          "name": "Buneary",
-          "hp": 60,
-          "prizes": 1,
-          "weakness": "Fighting"
-        },
-        "attackers": [
+          },
           {
-            "name": "Mega Lopunny ex",
-            "hp": 330,
-            "prizes": 3,
-            "type": "Colorless",
-            "weakness": "Fighting",
-            "ex": true,
-            "weight": 1,
-            "dmg": {
-              "base": 230
-            },
-            "energy": 1
-          }
-        ],
-        "bench": [
-          {
-            "name": "Buneary",
+            "name": "Duskull",
             "hp": 60,
             "prizes": 1,
-            "p": 0.6,
+            "p": 0.5,
+            "weakness": "Darkness",
             "line": true
           },
           {
-            "name": "Meowth ex",
-            "hp": 170,
-            "prizes": 2,
-            "p": 0.5
+            "name": "Dusclops",
+            "hp": 90,
+            "prizes": 1,
+            "p": 0.5,
+            "weakness": "Darkness",
+            "line": true
           }
         ],
         "speed": {
           "first": [
             0,
-            0.6,
-            0.85,
-            0.93,
-            0.97
+            0.1,
+            0.68,
+            0.88,
+            0.95
           ],
           "second": [
             0,
-            0.65,
-            0.88,
-            0.95,
-            0.97
+            0.15,
+            0.72,
+            0.9,
+            0.96
           ]
         },
-        "consistency": 0.8,
-        "gust": 0.5,
-        "stock": 3,
-        "setupFragility": 0.4
-      },
-      "limitlessId": 353
+        "consistency": 0.88,
+        "gust": 0.6,
+        "stock": 4,
+        "reliesOn": {
+          "evolved": 0.45
+        },
+        "energyFragility": 0.5,
+        "benchPrep": 0.55,
+        "reload": 0.75,
+        "setupFragility": 0.65,
+        "snipe": {
+          "name": "Dusknoir",
+          "dmg": 130,
+          "uses": 3,
+          "p": 0.55,
+          "from": 3,
+          "prizeCost": 1,
+          "lockedBy": "evolved"
+        },
+        "locks": {
+          "colorless": 0.4
+        },
+        "disrupt": {
+          "hand": 0.2
+        }
+      }
     }
   }
 }
